@@ -1,0 +1,35 @@
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 175px;
+    left: 0;
+    background-color: #0095ff;
+    width: 100%;
+    text-align: center;
+    z-index: 100;
+  }
+  .dropdown-menu.open {
+    display: block;
+  }
+  .dropdown-menu ul {
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    list-style: none;
+    text-align: center;
+  }
+  .dropdown-menu li {
+    padding: 15px 0;
+  } 
+  .dropdown-menu a {
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: .1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+  

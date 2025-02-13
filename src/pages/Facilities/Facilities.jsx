@@ -14,7 +14,12 @@ const Gallery = () => {
   ];
   return (
     <section className="gallery">
-      <h1>FACILITIES</h1>
+      <div className="header-container">
+        <img src="/facilities_header_img.jpg" alt="Facilities" />
+        <div className="overlay-text">
+          <h1>Facilities</h1>
+        </div>
+      </div>
       <div className="images">
         <div>
           {gallery.slice(0, 3).map((element, index) => (

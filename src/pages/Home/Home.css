@@ -1,7 +1,7 @@
 .hero {
   min-height: 100vh;
   position: relative;
-  background: url(/landscape_img.jpg) rgba(0, 0, 0, 0.75);
+  background: url(/landscape_img.jpg) rgba(0, 0, 0, 0.6);
   background-blend-mode: darken;
   background-size: cover;
   background-repeat: no-repeat;
@@ -48,27 +48,24 @@
 }
 .hero .content .information{
   font-weight: 300;
-  color: black;
+  color: whitesmoke;
   font-size: 1.5rem;
   line-height: 35px;
   text-align: center;
   margin-top: 10px;
   padding: 10px;
-  background-color: whitesmoke;
+  background-color: rgba(0, 0, 0, 0.4);
 }
-.hero .content .page-links
-{
+.hero .content .page-links {
   display: flex;
   justify-content: space-between;
   gap: 20px;
   align-items: center;
 }
-.hero .content .page-links .img-item
-{
+.hero .content .page-links .img-item {
   position: relative;
 }
-.hero .content .page-links .img-item img
-{
+.hero .content .page-links .img-item img {
   width: 100%;
   height: auto;
   display: block;
@@ -102,6 +99,9 @@
   header {
     margin-left: 2.5rem;
   }
+  .hero {
+    background-position: center;
+  }
   .hero .content .title {
     font-size: 2.75rem;
   }
@@ -110,7 +110,7 @@
     line-height: normal;
     margin-bottom: 5px;
   }
-  .hero .information {
+  .hero .information p{
     font-size: 1.3rem;
     line-height: normal;
     margin-bottom: 5px;
@@ -126,13 +126,13 @@
   .hero .content .sub-title p {
     font-size: 1.2rem;
   }
-  .hero .information {
+  .hero .information p{
     font-size: 1.2rem;
   }
 }
 @media (max-width: 600px) {
   .hero {
-    background-position: bottom;
+    background-position: center;
   }
   .hero .content .title {
     font-size: 2.2rem;
@@ -143,13 +143,22 @@
   .hero .content .buttons button {
     font-size: 1rem;
   }
-  .hero .information {
-    font-size: 1rem;
+  .hero .information p{
+    font-size: 1.2rem;
+  }
+  .hero .content .page-links{
+    flex-direction: column;
+  }
+  .button-overlay{
+    font-size: 2.5rem;
   }
 }
-@media (max-width: 467px) {
+@media (max-width: 412px) {
   header {
     margin-left: 2rem;
+  }
+  .hero {
+    background-position: center;
   }
   .hero .content .buttons {
     flex-direction: column;

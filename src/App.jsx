@@ -12,10 +12,18 @@ import Merchandise from "./pages/Merchandise/Merchandise";
 import Contact from "./pages/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import SignIn from "./pages/SignIn/SignIn";
+import BurgerIcon from "./components/BurgerIcon";
+import DropdownMenu from "./components/DropdownMenu";
 
 const App = () => {
   const current_theme = localStorage.getItem("current_theme");
   const [theme, setTheme] = useState(current_theme ? current_theme : "light");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    console.log("Burger icon clicked");
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   useEffect(() => {
     localStorage.setItem("current_theme", theme);
@@ -25,6 +33,8 @@ const App = () => {
     <Router>
       <div className={`container ${theme}`}>
         <Navbar theme={theme} setTheme={setTheme} />
+        <BurgerIcon toggleMenu={toggleMenu} />
+        <DropdownMenu isOpen={isMenuOpen} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Classes" element={<Classes />} />
