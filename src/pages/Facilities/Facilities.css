@@ -1,4 +1,4 @@
-.gallery {
+.facilities {
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -27,20 +27,12 @@
   background-color: rgba(0, 0, 0, 0.7);
   padding: 20px;
 }
-.gallery .images {
-  display: flex;
-  gap: 15px;
-  max-width: 1500px;
-  min-width: 1500px;
-  margin: 0 auto;
-  padding: 30px 0px;
-}
-.gallery .images div {
-  flex: 1;
-}
-.gallery .images img {
-  width: 100%;
-  height: auto;
+.facilities hr{
+  height: 2px;
+  width: 50%;
+  background-color: #e2e2e2;
+  border: none;
+  margin: 30px auto;
 }
   /* Media queries for responsiveness */
   @media (max-width: 1050px) {

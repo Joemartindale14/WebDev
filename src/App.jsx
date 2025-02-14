@@ -3,7 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import Classes from "./pages/Classes/Classes";
 import Facilities from "./pages/Facilities/Facilities";
@@ -12,8 +12,8 @@ import Merchandise from "./pages/Merchandise/Merchandise";
 import Contact from "./pages/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import SignIn from "./pages/SignIn/SignIn";
-import BurgerIcon from "./components/BurgerIcon";
-import DropdownMenu from "./components/DropdownMenu";
+import BurgerIcon from "./components/BurgerIcon/BurgerIcon";
+import DropdownMenu from "./components/DropdownMenu/DropdownMenu";
 
 const App = () => {
   const current_theme = localStorage.getItem("current_theme");

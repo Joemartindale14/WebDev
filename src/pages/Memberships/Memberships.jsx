@@ -1,31 +1,33 @@
 import { Check, Link } from "lucide-react";
 import React from "react";
+import HeaderContainer from "../../components/HeaderContainer/HeaderContainer";
 import "./Memberships.css";
 
 const Pricing = () => {
   const pricing = [
     {
-      imgUrl: "/pricing.jpg",
+      imgUrl: "/pricing_img.jpg",
       title: "DIRECT-DEBIT",
-      price: "29.99",
-      length: "Rolling",
+      price: "20.00",
+      length: "Every",
     },
     {
-      imgUrl: "/pricing.jpg",
+      imgUrl: "/pricing_img.jpg",
       title: "HALF-YEAR",
-      price: "174.99",
+      price: "120",
       length: "6",
     },
     {
-      imgUrl: "/pricing.jpg",
+      imgUrl: "/pricing_img.jpg",
       title: "YEARLY",
-      price: "339.99",
+      price: "200",
       length: "12",
     },
   ];
   return (
     <section className="pricing">
-      <h2>MEMBERSHIP PLANS</h2>
+      <HeaderContainer imageSrc="/memberships_header_img.jpg" title="Memberships"/>
+      <hr />
       <div className="wrapper">
         {pricing.map((element) => {
           return (
@@ -35,7 +37,7 @@ const Pricing = () => {
                 <h1>{element.title}</h1>
                 <h1>MEMBERSHIP</h1>
                 <h3>£ {element.price}</h3>
-                <p>For {element.length} Months</p>
+                <p>For {element.length} Month</p>
               </div>
               <div className="description">
                 <p>

@@ -1,5 +1,6 @@
 import { Check, Link } from "lucide-react";
 import React from "react";
+import HeaderContainer from "../../components/HeaderContainer/HeaderContainer";
 import "./Merchandise.css";
 
 const Merchandise = () => {
@@ -25,7 +26,8 @@ const Merchandise = () => {
   ];
   return (
     <section className="pricing">
-      <h2>MERCHANDISE</h2>
+        <HeaderContainer imageSrc="/merchandise_header_img.jpg" title="Merchandise"/>
+        <hr />
       <div className="wrapper">
         {pricing.map((element) => {
           return (

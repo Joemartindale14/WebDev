@@ -1,0 +1,27 @@
+.image-text-pair {
+    display: flex;
+    align-items: center;
+    margin: 50px 50px 50px 50px;
+  }
+  
+  .image-text-pair.reverse {
+    flex-direction: row-reverse;
+  }
+  
+  .image-text-pair img {
+    width: 50%;
+    height: auto;
+    border-radius: 4px;
+  }
+  .image-text-pair .text {
+    width: 50%;
+    font-weight: 300;
+    color: whitesmoke;
+    font-size: 1.5rem;
+    line-height: 35px;
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+  }

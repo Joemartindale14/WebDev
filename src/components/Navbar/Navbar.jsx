@@ -1,12 +1,12 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./Navbar.css";
-import logo_white from "../assets/logo_black.png";
-import logo_black from "../assets/logo_white.png";
-import toggle_light from "../assets/night.png";
-import toggle_dark from "../assets/day.png";
-import account_black from "../assets/account_black.png";
-import account_blue from "../assets/account_blue.png";
+import logo_white from "../../assets/logo_black.png";
+import logo_black from "../../assets/logo_white.png";
+import toggle_light from "../../assets/night.png";
+import toggle_dark from "../../assets/day.png";
+import account_black from "../../assets/account_black.png";
+import account_blue from "../../assets/account_blue.png";
 
 const Navbar = ({ theme, setTheme }) => {
   const toggle_mode = () => {
