@@ -1,19 +1,19 @@
-.sign-in-container {
+.sign-up-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 100vh;
 }
-.sign-in-form {
+.sign-up-form {
   background: whitesmoke;
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
   text-align: center;
 }
-.sign-in-form h1 {
+.sign-up-form h1 {
   font-size: 2.2rem;
   color: #242424;
   margin: 0 auto;
@@ -21,18 +21,20 @@
   padding: 10px 10px;
   margin-bottom: 50px;
 }
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
 .form-group {
   margin-bottom: 20px;
   text-align: left;
 }
-
 .form-group label {
   display: block;
   margin-bottom: 5px;
-  color: #555;
+  color: black;
   font-weight: 500;
 }
-
 .form-group input {
   width: 100%;
   padding: 10px;
@@ -40,8 +42,21 @@
   border-radius: 5px;
   font-size: 16px;
 }
-
-.sign-in-button {
+.form-group.first-name {
+  flex: 1;
+  margin-right: 10px;
+}
+.form-group.last-name {
+  flex: 2;
+}
+.form-group.address {
+  flex: 2;
+}
+.form-group.postcode {
+  flex: 1;
+  margin-left: 10px;
+}
+.sign-up-button {
   width: 50%;
   padding: 10px;
   background: #0095ff;
@@ -53,20 +68,17 @@
   margin-top:20px;
   transition: background 0.3s ease;
 }
-.sign-in-button:hover {
+.sign-up-button:hover {
   background: #0267af;
 }
-
-.sign-up-link {
+.sign-in-link {
   margin-top: 20px;
   color: #555;
 }
-
-.sign-up-link a {
+.sign-in-link a {
   color: #1b81ca;
   text-decoration: none;
 }
-
-.sign-up-link a:hover {
+.sign-in-link a:hover {
   text-decoration: underline;
 }

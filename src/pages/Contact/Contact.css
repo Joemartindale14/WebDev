@@ -1,5 +1,5 @@
 .contact {
-  min-height: 100vh;
+  min-height: 80vh;
   position: relative;
   background: url(/contactus_img.jpg) rgba(0, 0, 0, 0.6);
   background-blend-mode: darken;
@@ -24,6 +24,8 @@
   flex-direction: column;
   gap: 40px;
   font-size: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .contact form div {
   display: flex;
@@ -50,6 +52,7 @@
   padding: 10px;
   font-size: 20px;
   transition: 0.3s;
+  border-radius: 10px;
 }
 .contact form button:hover {
   transition: 0.3s;

@@ -12,6 +12,7 @@ import Merchandise from "./pages/Merchandise/Merchandise";
 import Contact from "./pages/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import SignIn from "./pages/SignIn/SignIn";
+import SignUp from "./pages/SignUp/SignUp";
 import BurgerIcon from "./components/BurgerIcon/BurgerIcon";
 import DropdownMenu from "./components/DropdownMenu/DropdownMenu";
 
@@ -43,6 +44,7 @@ const App = () => {
           <Route path="/Merchandise" element={<Merchandise />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/SignIn" element={<SignIn />} />
+          <Route path="/SignUp" element={<SignUp />} />
         </Routes>
         <Footer />
         <ToastContainer theme="dark" position="top-center" />
