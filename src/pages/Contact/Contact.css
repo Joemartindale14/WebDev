@@ -1,11 +1,10 @@
-
 .contact {
-  min-height: 800px;
-  background: url(/contact.jpg) rgba(0, 0, 0, 0.75);
+  min-height: 100vh;
+  position: relative;
+  background: url(/contactus_img.jpg) rgba(0, 0, 0, 0.6);
   background-blend-mode: darken;
-  background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -14,7 +14,8 @@
   transition: 0.5s;
 }
 .container.dark{
-  background: #222;
+  background: #333333;
+  ;
 }
 header {
   position: absolute;

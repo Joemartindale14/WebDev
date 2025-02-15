@@ -7,7 +7,7 @@ const ImageTextPair = ({ imageSrc, text, reverse }) => {
     <div className={`image-text-pair ${reverse ? "reverse" : ""}`}>
       <img src={imageSrc} alt="Image" />
       <div className="text">
-        <p>{text}</p>
+        <p style={{ whiteSpace: 'pre-line' }}>{text}</p>
       </div>
     </div>
   );
