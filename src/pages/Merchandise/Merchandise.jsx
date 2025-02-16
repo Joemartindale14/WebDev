@@ -7,32 +7,30 @@ const Merchandise = () => {
     const [filters, setFilters] = useState({
         category: [],
         inStock: false,
+        priceRange: "all",
     });
 
     const products = [
         { id: 1, name: 'T-shirt', price: 18, category: 'Clothing', stock: 50, imageUrl: "/tshirt_img.jpg" },
-        { id: 2, name: 'Gym Shorts', price: 25, category: 'Clothing', stock: 30, imageUrl: "/gym_shorts_img.jpg" },
-        { id: 3, name: 'Vest', price: 20, category: 'Clothing', stock: 0, imageUrl: "/tank_top_img.jpg" },
-        { id: 4, name: 'Leggings', price: 35, category: 'Clothing', stock: 20, imageUrl: "/compression_leggings_img.jpg" },
-        { id: 5, name: 'Hoodie', price: 30, category: 'Clothing', stock: 25, imageUrl: "/sweatshirt_img.jpg" },
+        { id: 2, name: 'Leggings', price: 25, category: 'Clothing', stock: 30, imageUrl: "/leggings_img.jpg" },
+        { id: 3, name: 'Vest', price: 20, category: 'Clothing', stock: 0, imageUrl: "/vest_img.jpg" },
+        { id: 4, name: 'Quater Zip', price: 35, category: 'Clothing', stock: 20, imageUrl: "/quaterzip_img.jpg" },
+        { id: 5, name: 'Hoodie', price: 30, category: 'Clothing', stock: 25, imageUrl: "/hoodie_img.jpg" },
         { id: 6, name: 'Sports Bra', price: 22, category: 'Clothing', stock: 60, imageUrl: "/sports_bra_img.jpg" },
         { id: 7, name: 'Joggers', price: 28, category: 'Clothing', stock: 15, imageUrl: "/joggers_img.jpg" },
         { id: 8, name: 'Yoga Mat', price: 18, category: 'Accessories', stock: 50, imageUrl: "/yoga_mat_img.jpg" },
-        { id: 9, name: 'Resistance Bands', price: 12, category: 'Accessories', stock: 30, imageUrl: "/resistance_bands_img.jpg" },
-        { id: 10, name: 'Dumbbells', price: 25, category: 'Accessories', stock: 40, imageUrl: "/dumbbells_img.jpg" },
+        { id: 9, name: 'Resistance Bands', price: 12, category: 'Accessories', stock: 30, imageUrl: "/resistance_band_img.jpg" },
+        { id: 10, name: 'Dumbbells', price: 25, category: 'Accessories', stock: 0, imageUrl: "/dumbells_img.jpg" },
         { id: 11, name: 'Water Bottle', price: 15, category: 'Accessories', stock: 60, imageUrl: "/water_bottle_img.jpg" },
-        { id: 12, name: 'Gym Towel', price: 8, category: 'Accessories', stock: 20, imageUrl: "/gym_towel_img.jpg" },
-        { id: 13, name: 'Protein Bottle', price: 5, category: 'Accessories', stock: 12, imageUrl: "/protein_bottle_img.jpg" },
+        { id: 12, name: 'Gym Towel', price: 8, category: 'Accessories', stock: 20, imageUrl: "/towel_img.jpg" },
+        { id: 13, name: 'Shaker Bottle', price: 5, category: 'Accessories', stock: 12, imageUrl: "/protein_shaker_img.jpg" },
         { id: 14, name: 'Protein Bar', price: 3, category: 'Snacks', stock: 100, imageUrl: "/protein_bar_img.jpg" },
         { id: 15, name: 'Energy Drink', price: 2.5, category: 'Snacks', stock: 75, imageUrl: "/energy_drink_img.jpg" },
-        { id: 16, name: 'Trail Mix', price: 5, category: 'Snacks', stock: 50, imageUrl: "/trail_mix_img.jpg" },
+        { id: 16, name: 'Pre-Workout Scoop', price: 2.50, category: 'Snacks', stock: 50, imageUrl: "/preworkout_img.jpg" },
         { id: 17, name: 'Granola Bar', price: 2.5, category: 'Snacks', stock: 80, imageUrl: "/granola_bar_img.jpg" },
-        { id: 18, name: 'Fruit Chips', price: 3, category: 'Snacks', stock: 60, imageUrl: "/fruit_chips_img.jpg" },
-        { id: 19, name: 'Protein Cookies', price: 4, category: 'Snacks', stock: 40, imageUrl: "/protein_cookies_img.jpg" },
-        { id: 20, name: 'Protein Shake', price: 2, category: 'Snacks', stock: 100, imageUrl: "/protein_shake_img.jpg" },
-
-      
-      
+        { id: 18, name: 'Coffee', price: 3, category: 'Snacks', stock: 60, imageUrl: "/coffee_img.jpg" },
+        { id: 19, name: 'Protein Cookies', price: 4, category: 'Snacks', stock: 0, imageUrl: "/cookie_img.jpg" },
+        { id: 20, name: 'Protein Shake', price: 2, category: 'Snacks', stock: 100, imageUrl: "/shaker_bottle_img.jpg" },
         // More products...
     ];
 
@@ -47,6 +45,13 @@ const Merchandise = () => {
             return false;
         }
 
+        if (filters.priceRange !== "all") {
+            const [minPrice, maxPrice] = filters.priceRange.split('-').map(Number);
+            if (product.price < minPrice || product.price > maxPrice) {
+                return false;
+            }
+        }
+
         return true;
     });
 
@@ -59,19 +64,56 @@ const Merchandise = () => {
         return 0;
     });
 
+    const clearFilters = () => {
+        setFilters({
+            category: [],
+            inStock: false,
+            priceRange: "all",
+        });
+        setSortBy('price');
+    };
+
     return (
         <section className="merchandise">
           <HeaderContainer imageSrc="/merchandise_header_img.jpg" title="Merchandise"/>
           <hr />
         <div className="merch-content"> 
               <div className="filters">
-                <label>FILTER & SORT</label>
+                <label>FILTER & SORT <button onClick={clearFilters}>Clear Filters</button> </label>
                 <hr />
                 <label>SORT BY:</label>
                   <select onChange={(e) => setSortBy(e.target.value)}>
-                      <option value="price">Price</option>
+                      <option value="price">Price (low to high)</option>
                       <option value="name">Name</option>
                   </select>
+                  <hr />
+                  <div>
+                      <label>CATEGORY:</label>
+                      <select
+                          onChange={(e) => {
+                              const selectedCategories = Array.from(e.target.selectedOptions, (option) => option.value);
+                              setFilters({ ...filters, category: selectedCategories });
+                          }}
+                      >
+                          <option value="Clothing">Clothing</option>
+                          <option value="Accessories">Accessories</option>
+                          <option value="Snacks">Snacks</option>
+                      </select>
+                  </div>
+                  <hr />
+                  <div>
+                      <label>PRICE:</label>
+                      <select
+                          value={filters.priceRange}
+                          onChange={(e) => setFilters({ ...filters, priceRange: e.target.value })}
+                      >
+                          <option value="all">All</option>
+                          <option value="0-10">£0 - £10</option>
+                          <option value="10-20">£10 - £20</option>
+                          <option value="20-30">£20 - £30</option>
+                          <option value="30-40">£30 - £40</option>
+                      </select>
+                  </div>
                   <hr />
                   <div>
                       <label>
@@ -83,27 +125,11 @@ const Merchandise = () => {
                           In Stock
                       </label>
                   </div>
-                  <hr />
-                  <div>
-                      <label>CATEGORY:</label>
-                      <select
-                          multiple
-                          onChange={(e) => {
-                              const selectedCategories = Array.from(e.target.selectedOptions, (option) => option.value);
-                              setFilters({ ...filters, category: selectedCategories });
-                          }}
-                      >
-                          <option value="Clothing">Clothing</option>
-                          <option value="Accessories">Accessories</option>
-                          <option value="Snacks">Snacks</option>
-                      </select>
-                  </div>
               </div>
-
               <div className="product-list">
                   {sortedProducts.map(product => (
                       <div key={product.id} className="product-card">
-                          <img src={product.imageUrl} alt={product.name} />
+                          <img src={product.imageUrl} alt={product.name} loading="lazy"/>
                           <h3>{product.name}</h3>
                           <p>Price: £{product.price}</p>
                           <p>Category: {product.category}</p>
