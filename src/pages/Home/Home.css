@@ -1,7 +1,7 @@
 .hero {
   min-height: 100vh;
   position: relative;
-  background: url(/landscape_img.jpg) rgba(0, 0, 0, 0.6);
+  background: url(/landscape_img.webp) rgba(0, 0, 0, 0.6);
   background-blend-mode: darken;
   background-size: cover;
   background-repeat: no-repeat;
@@ -67,7 +67,7 @@
 }
 .hero .content .page-links .img-item img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
 }
 .button-overlay {

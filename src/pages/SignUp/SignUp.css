@@ -1,8 +1,13 @@
 .sign-up-container {
+  min-height: 80vh;
+  position: relative;
+  background: url(/account_img.jpg) rgba(0, 0, 0, 0.6);
+  background-blend-mode: darken;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 .sign-up-form {
   background: whitesmoke;

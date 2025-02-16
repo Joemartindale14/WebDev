@@ -11,26 +11,26 @@ const Merchandise = () => {
     });
 
     const products = [
-        { id: 1, name: 'T-shirt', price: 18, category: 'Clothing', stock: 50, imageUrl: "/tshirt_img.jpg" },
-        { id: 2, name: 'Leggings', price: 25, category: 'Clothing', stock: 30, imageUrl: "/leggings_img.jpg" },
-        { id: 3, name: 'Vest', price: 20, category: 'Clothing', stock: 0, imageUrl: "/vest_img.jpg" },
-        { id: 4, name: 'Quater Zip', price: 35, category: 'Clothing', stock: 20, imageUrl: "/quaterzip_img.jpg" },
-        { id: 5, name: 'Hoodie', price: 30, category: 'Clothing', stock: 25, imageUrl: "/hoodie_img.jpg" },
-        { id: 6, name: 'Sports Bra', price: 22, category: 'Clothing', stock: 60, imageUrl: "/sports_bra_img.jpg" },
-        { id: 7, name: 'Joggers', price: 28, category: 'Clothing', stock: 15, imageUrl: "/joggers_img.jpg" },
-        { id: 8, name: 'Yoga Mat', price: 18, category: 'Accessories', stock: 50, imageUrl: "/yoga_mat_img.jpg" },
-        { id: 9, name: 'Resistance Bands', price: 12, category: 'Accessories', stock: 30, imageUrl: "/resistance_band_img.jpg" },
-        { id: 10, name: 'Dumbbells', price: 25, category: 'Accessories', stock: 0, imageUrl: "/dumbells_img.jpg" },
-        { id: 11, name: 'Water Bottle', price: 15, category: 'Accessories', stock: 60, imageUrl: "/water_bottle_img.jpg" },
-        { id: 12, name: 'Gym Towel', price: 8, category: 'Accessories', stock: 20, imageUrl: "/towel_img.jpg" },
-        { id: 13, name: 'Shaker Bottle', price: 5, category: 'Accessories', stock: 12, imageUrl: "/protein_shaker_img.jpg" },
-        { id: 14, name: 'Protein Bar', price: 3, category: 'Snacks', stock: 100, imageUrl: "/protein_bar_img.jpg" },
-        { id: 15, name: 'Energy Drink', price: 2.5, category: 'Snacks', stock: 75, imageUrl: "/energy_drink_img.jpg" },
-        { id: 16, name: 'Pre-Workout Scoop', price: 2.50, category: 'Snacks', stock: 50, imageUrl: "/preworkout_img.jpg" },
-        { id: 17, name: 'Granola Bar', price: 2.5, category: 'Snacks', stock: 80, imageUrl: "/granola_bar_img.jpg" },
-        { id: 18, name: 'Coffee', price: 3, category: 'Snacks', stock: 60, imageUrl: "/coffee_img.jpg" },
-        { id: 19, name: 'Protein Cookies', price: 4, category: 'Snacks', stock: 0, imageUrl: "/cookie_img.jpg" },
-        { id: 20, name: 'Protein Shake', price: 2, category: 'Snacks', stock: 100, imageUrl: "/shaker_bottle_img.jpg" },
+        { id: 1, name: 'T-shirt', price: 18, category: 'Clothing', stock: 50, imageUrl: "/tshirt_img.webp" },
+        { id: 2, name: 'Leggings', price: 25, category: 'Clothing', stock: 30, imageUrl: "/leggings_img.webp" },
+        { id: 3, name: 'Vest', price: 20, category: 'Clothing', stock: 0, imageUrl: "/vest_img.webp" },
+        { id: 4, name: 'Quater Zip', price: 35, category: 'Clothing', stock: 20, imageUrl: "/quaterzip_img.webp" },
+        { id: 5, name: 'Hoodie', price: 30, category: 'Clothing', stock: 25, imageUrl: "/hoodie_img.webp" },
+        { id: 6, name: 'Sports Bra', price: 22, category: 'Clothing', stock: 60, imageUrl: "/sports_bra_img.webp" },
+        { id: 7, name: 'Joggers', price: 28, category: 'Clothing', stock: 15, imageUrl: "/joggers_img.webp" },
+        { id: 8, name: 'Yoga Mat', price: 18, category: 'Accessories', stock: 50, imageUrl: "/yoga_mat_img.webp" },
+        { id: 9, name: 'Resistance Bands', price: 12, category: 'Accessories', stock: 30, imageUrl: "/resistance_band_img.webp" },
+        { id: 10, name: 'Dumbbells', price: 25, category: 'Accessories', stock: 0, imageUrl: "/dumbells_img.webp" },
+        { id: 11, name: 'Water Bottle', price: 15, category: 'Accessories', stock: 60, imageUrl: "/water_bottle_img.webp" },
+        { id: 12, name: 'Gym Towel', price: 8, category: 'Accessories', stock: 20, imageUrl: "/towel_img.webp" },
+        { id: 13, name: 'Shaker Bottle', price: 5, category: 'Accessories', stock: 12, imageUrl: "/protein_shaker_img.webp" },
+        { id: 14, name: 'Protein Bar', price: 3, category: 'Snacks', stock: 100, imageUrl: "/protein_bar_img.webp" },
+        { id: 15, name: 'Energy Drink', price: 2.5, category: 'Snacks', stock: 75, imageUrl: "/energy_drink_img.webp" },
+        { id: 16, name: 'Pre-Workout Scoop', price: 2.50, category: 'Snacks', stock: 50, imageUrl: "/preworkout_img.webp" },
+        { id: 17, name: 'Granola Bar', price: 2.5, category: 'Snacks', stock: 80, imageUrl: "/granola_bar_img.webp" },
+        { id: 18, name: 'Coffee', price: 3, category: 'Snacks', stock: 60, imageUrl: "/coffee_img.webp" },
+        { id: 19, name: 'Protein Cookies', price: 4, category: 'Snacks', stock: 0, imageUrl: "/cookie_img.webp" },
+        { id: 20, name: 'Protein Shake', price: 2, category: 'Snacks', stock: 100, imageUrl: "/shaker_bottle_img.webp" },
         // More products...
     ];
 
@@ -79,7 +79,7 @@ const Merchandise = () => {
           <hr />
         <div className="merch-content"> 
               <div className="filters">
-                <label>FILTER & SORT <button onClick={clearFilters}>Clear Filters</button> </label>
+                <label>FILTER & SORT</label>
                 <hr />
                 <label>SORT BY:</label>
                   <select onChange={(e) => setSortBy(e.target.value)}>
@@ -125,6 +125,8 @@ const Merchandise = () => {
                           In Stock
                       </label>
                   </div>
+                  <hr />
+                  <button onClick={clearFilters}>Clear Filters</button> 
               </div>
               <div className="product-list">
                   {sortedProducts.map(product => (

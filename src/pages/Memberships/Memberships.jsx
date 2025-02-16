@@ -26,13 +26,13 @@ const Pricing = () => {
   ];
   return (
     <section className="pricing">
-      <HeaderContainer imageSrc="/memberships_header_img.jpg" title="Memberships"/>
+      <HeaderContainer imageSrc="/memberships_header_img.jpg" title="Memberships" loading="lazy"/>
       <hr />
       <div className="wrapper">
         {pricing.map((element) => {
           return (
             <div className="card" key={element.title}>
-              <img src={element.imgUrl} alt={element.title} />
+              <img src={element.imgUrl} alt={element.title} loading="lazy"/>
               <div className="title">
                 <h1>{element.title}</h1>
                 <h1>MEMBERSHIP</h1>

@@ -7,6 +7,9 @@
   overflow-x: hidden;
   font-family: "Roboto", sans-serif;
 }
+html{
+  scroll-behavior: smooth;
+}
 .container{
   width: 100vw;
   height: 100vh;
@@ -16,21 +19,4 @@
 .container.dark{
   background: #333333;
   ;
-}
-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  font-size: 1.6rem;
-  border: 2px solid whitesmoke;
-  padding: 8px 12px;
-  margin-top: 45px;
-  margin-left: 7rem;
-}
-header p {
-  font-family: "Exo 2", sans-serif;
-  letter-spacing: 1px;
-  word-spacing: 5px;
-  color: whitesmoke;
 }
