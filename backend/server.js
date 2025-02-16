@@ -7,17 +7,18 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 //express app
-const app = express();
-const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI;
-const JWT_SECRET = process.env.JWT_SECRET;
+const app = express(); // Create Express app
+const PORT = process.env.PORT || 5000; // Set port
+const MONGO_URI = process.env.MONGO_URI; // Set MongoDB URI
+const JWT_SECRET = process.env.JWT_SECRET; // Set JWT secret
 
 app.use(bodyParser.json());
 
-mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true }) 
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
 
+  // sign up route
   app.post('/signup', async (req, res) => {
     const { firstName, lastName, email, password, address, postcode } = req.body;
     try {
@@ -29,6 +30,7 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     }
   });
   
+  // sign in route
   app.post('/signin', async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -42,7 +44,7 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
       res.status(400).send(err.message);
     }
   });
-  
+
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
