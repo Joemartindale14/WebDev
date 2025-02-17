@@ -6,19 +6,19 @@ import "./Memberships.css";
 const Pricing = () => {
   const pricing = [
     {
-      imgUrl: "/pricing_img.jpg",
+      imgUrl: "/pricing_img.webp",
       title: "DIRECT-DEBIT",
       price: "20.00",
       length: "Every",
     },
     {
-      imgUrl: "/pricing_img.jpg",
+      imgUrl: "/pricing_img.webp",
       title: "HALF-YEAR",
       price: "120",
       length: "6",
     },
     {
-      imgUrl: "/pricing_img.jpg",
+      imgUrl: "/pricing_img.webp",
       title: "YEARLY",
       price: "200",
       length: "12",
@@ -26,7 +26,7 @@ const Pricing = () => {
   ];
   return (
     <section className="pricing">
-      <HeaderContainer imageSrc="/memberships_header_img.jpg" title="Memberships" loading="lazy"/>
+      <HeaderContainer imageSrc="/memberships_header_img.webp" title="Memberships" loading="lazy"/>
       <hr />
       <div className="wrapper">
         {pricing.map((element) => {

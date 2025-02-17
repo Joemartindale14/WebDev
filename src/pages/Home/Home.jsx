@@ -38,25 +38,25 @@ const Hero = () => {
         <hr />
         <div className="page-links">
           <div className="img-item">
-            <img src="/facilities_img.jpg" alt="Facilities" loading="lazy"/>
+            <img src="/link_facilities_img.webp" alt="Facilities" loading="lazy"/>
             <a href="/Facilities" className="button-overlay">
               Facilities
             </a>
           </div>
           <div className="img-item">
-            <img src="/memberships_img.jpg" alt="Memberships" loading="lazy"/>
+            <img src="/link_memberships_img.webp" alt="Memberships" loading="lazy"/>
             <a href="/Memberships" className="button-overlay">
               Memberships
             </a>
           </div>
           <div className="img-item">
-            <img src="/merchandise_img.jpg" alt="Merchandise" loading="lazy"/>
+            <img src="/link_merchandise_img.webp" alt="Merchandise" loading="lazy"/>
             <a href="/Merchandise" className="button-overlay">
               Merchandise
             </a>
           </div>
           <div className="img-item">
-            <img src="/classes_img.jpg" alt="Classes" loading="lazy"/>
+            <img src="/link_classes_img.webp" alt="Classes" loading="lazy"/>
             <a href="/Classes" className="button-overlay">
               Classes
             </a>
