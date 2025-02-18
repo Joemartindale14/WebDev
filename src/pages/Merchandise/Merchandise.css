@@ -55,6 +55,9 @@
   width: 100%;
 }
 .filters select{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ddd;
@@ -71,11 +74,6 @@
   font-size: 1rem;
   color: #555;
   outline: none;
-}
-.filters select {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
 }
 .filters select:focus, .filters input[type="checkbox"]:focus {
   border-color: #0066cc;
@@ -98,7 +96,8 @@
   width: 50%;
 }
 .product-card {
-  background-color: white;
+  height: 400px;
+  background-color: whitesmoke;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -110,12 +109,12 @@
 }
 .product-card img {
   width: 100%;
-  height: auto;
+  height: 160px;
   border-radius: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 .product-card h3 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin: 10px 0;
   color: #333;
 }
@@ -125,9 +124,9 @@
   color: #666;
 }
 .product-card .price {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  color: #28a745;
+  color: #333;
   margin-top: 10px;
 }
 .product-card .stock-status {
@@ -135,12 +134,48 @@
   color: #999;
   margin-top: 5px;
 }
-.product-card .out-of-stock {
-  color: #f44336;
+.product-card-buttons {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 8px;
+}
+.product-card-buttons .add  {
+  width: 20%;
+  background-color: #28a745 ;
+  color: #fff;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  transition: background-color 0.3s ease;
+}
+.product-card-buttons .add:hover {
+  background-color: #218838;
+}
+.product-card-buttons .remove  {
+  width: 20%;
+  background-color: #dc3545 ;
+  color: #fff;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  transition: background-color 0.3s ease;
+}
+.product-card-buttons .remove:hover {
+  background-color: #c82333;
+}
+.product-card button:hover {
+  background-color: #1d1d1d;
 }
 /* Button Styles */
 .filters button {
-  background-color: #a72828;
+  background-color: #ff4d4d;
   color: #fff;
   padding: 10px 15px;
   border: none;
@@ -151,7 +186,7 @@
   width: 100%;
 }
 .filters button:hover {
-  background-color: #882121;
+  background-color: #ff1a1a;
 }
 /* Responsive Design */
 @media (max-width: 768px) {

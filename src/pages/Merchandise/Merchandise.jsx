@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import HeaderContainer from "../../components/HeaderContainer/HeaderContainer";
+import { CartContext } from "../../context/CartContext";
 import "./Merchandise.css";
 
 const Merchandise = () => {
@@ -10,15 +11,17 @@ const Merchandise = () => {
         priceRange: "all",
     });
 
+    const { addToCart, decreaseQuantity } = useContext(CartContext);
+
     const products = [
         { id: 1, name: 'T-shirt', price: 18, category: 'Clothing', stock: 50, imageUrl: "/tshirt_img.webp" },
         { id: 2, name: 'Leggings', price: 25, category: 'Clothing', stock: 30, imageUrl: "/leggings_img.webp" },
-        { id: 3, name: 'Vest', price: 20, category: 'Clothing', stock: 0, imageUrl: "/vest_img.webp" },
-        { id: 4, name: 'Quater Zip', price: 35, category: 'Clothing', stock: 20, imageUrl: "/long_sleeve_img.webp" },
-        { id: 5, name: 'Hoodie', price: 30, category: 'Clothing', stock: 25, imageUrl: "/hoodie_img.webp" },
-        { id: 6, name: 'Sports Bra', price: 22, category: 'Clothing', stock: 60, imageUrl: "/sports_bra_img.webp" },
-        { id: 7, name: 'Joggers', price: 28, category: 'Clothing', stock: 15, imageUrl: "/joggers_img.webp" },
-        { id: 8, name: 'Yoga Mat', price: 18, category: 'Accessories', stock: 50, imageUrl: "/yoga_mat_img.webp" },
+        { id: 3, name: 'Vest', price: 12, category: 'Clothing', stock: 0, imageUrl: "/vest_img.webp" },
+        { id: 4, name: 'Long Sleeve', price: 29.99, category: 'Clothing', stock: 20, imageUrl: "/long_sleeve_img.webp" },
+        { id: 5, name: 'Hoodie', price: 39.99, category: 'Clothing', stock: 25, imageUrl: "/hoodie_img.webp" },
+        { id: 6, name: 'Sports Bra', price: 25.99, category: 'Clothing', stock: 60, imageUrl: "/sports_bra_img.webp" },
+        { id: 7, name: 'Joggers', price: 24.99, category: 'Clothing', stock: 15, imageUrl: "/joggers_img.webp" },
+        { id: 8, name: 'Yoga Mat', price: 14.99, category: 'Accessories', stock: 50, imageUrl: "/yoga_mat_img.webp" },
         { id: 9, name: 'Resistance Bands', price: 12, category: 'Accessories', stock: 30, imageUrl: "/resistance_band_img.webp" },
         { id: 10, name: 'Dumbbells', price: 25, category: 'Accessories', stock: 0, imageUrl: "/dumbbells_img.webp" },
         { id: 11, name: 'Water Bottle', price: 15, category: 'Accessories', stock: 60, imageUrl: "/water_bottle_img.webp" },
@@ -31,7 +34,6 @@ const Merchandise = () => {
         { id: 18, name: 'Coffee', price: 3, category: 'Snacks', stock: 60, imageUrl: "/coffee_img.webp" },
         { id: 19, name: 'Protein Cookies', price: 4, category: 'Snacks', stock: 0, imageUrl: "/cookie_img.webp" },
         { id: 20, name: 'Protein Shake', price: 2, category: 'Snacks', stock: 100, imageUrl: "/protein_shake_img.webp" },
-        // More products...
     ];
 
     const filteredProducts = products.filter(product => {
@@ -45,6 +47,7 @@ const Merchandise = () => {
             return false;
         }
 
+        // Filter by price range
         if (filters.priceRange !== "all") {
             const [minPrice, maxPrice] = filters.priceRange.split('-').map(Number);
             if (product.price < minPrice || product.price > maxPrice) {
@@ -90,6 +93,7 @@ const Merchandise = () => {
                   <div>
                       <label>CATEGORY:</label>
                       <select
+                          value={filters.category}
                           onChange={(e) => {
                               const selectedCategories = Array.from(e.target.selectedOptions, (option) => option.value);
                               setFilters({ ...filters, category: selectedCategories });
@@ -102,7 +106,7 @@ const Merchandise = () => {
                   </div>
                   <hr />
                   <div>
-                      <label>PRICE:</label>
+                      <label>PRICE RANGE:</label>
                       <select
                           value={filters.priceRange}
                           onChange={(e) => setFilters({ ...filters, priceRange: e.target.value })}
@@ -131,11 +135,15 @@ const Merchandise = () => {
               <div className="product-list">
                   {sortedProducts.map(product => (
                       <div key={product.id} className="product-card">
-                          <img src={product.imageUrl} alt={product.name} loading="lazy"/>
-                          <h3>{product.name}</h3>
-                          <p>Price: £{product.price}</p>
-                          <p>Category: {product.category}</p>
-                          <p>{product.stock > 0 ? `${product.stock} in stock` : 'Out of stock'}</p>
+                                <img src={product.imageUrl} alt={product.name} loading="lazy"/>
+                                <h3>{product.name}</h3>
+                                <p>{product.category}</p>
+                                <p className="stock-status">{product.stock > 0 ? `${product.stock} in stock` : 'Out of stock'}</p>
+                                <p className="price">Price: £{product.price}</p>
+                            <div className="product-card-buttons">
+                                <button className="add" onClick={() => addToCart(product)}>+</button>
+                                <button className="remove" onClick={() => decreaseQuantity(product.id)}>-</button>
+                            </div>
                       </div>
                   ))}
               </div>
@@ -145,4 +153,3 @@ const Merchandise = () => {
 };
 
 export default Merchandise;
-

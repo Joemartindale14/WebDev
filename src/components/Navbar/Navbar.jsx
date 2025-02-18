@@ -42,6 +42,9 @@ const Navbar = ({ theme, setTheme }) => {
         <li className={location.pathname === "/Contact" ? "active" : ""}>
           <a href="/Contact">Contact</a>
         </li>
+        <li className={location.pathname === "/Cart" ? "active" : ""}>
+          <a href="/Cart">Cart</a>
+        </li>
       </ul>
       <a href="/Memberships">
         <button>Join Now</button>
