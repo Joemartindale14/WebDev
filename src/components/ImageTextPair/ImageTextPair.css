@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     margin: 50px 50px 50px 50px;
+    gap: 20px;
   }
   .image-text-pair.reverse {
     flex-direction: row-reverse;
@@ -18,15 +19,32 @@
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   }
   .image-text-pair .text {
-    width: 70%;
-    font-weight: 300;
-    color: whitesmoke;
-    font-size: 1.5rem;
+    width: 50%;
+    padding: 10px;
+    background-color: whitesmoke;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .image-text-pair h1 {
+    font-weight: 500;
+    color: #333;
+    font-size: 2rem;
+    letter-spacing: 2px;
     line-height: 35px;
     text-align: center;
     margin: 20px;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: whitesmoke;
     border-radius: 4px;
+  }
+  .image-text-pair .text p {
+    font-weight: 300;
+    color: #666;
+    font-size: 1.5rem;
+    line-height: 35px;
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
   }
   

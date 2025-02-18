@@ -7,6 +7,8 @@ import toggle_light from "../../assets/night.png";
 import toggle_dark from "../../assets/day.png";
 import account_black from "../../assets/account_black.png";
 import account_blue from "../../assets/account_blue.png";
+import shopping_cart_black from "../../assets/shopping_cart_black.png";
+import shopping_cart_colour from "../../assets/shopping_cart_colour.png";
 
 const Navbar = ({ theme, setTheme }) => {
   const toggle_mode = () => {
@@ -42,14 +44,21 @@ const Navbar = ({ theme, setTheme }) => {
         <li className={location.pathname === "/Contact" ? "active" : ""}>
           <a href="/Contact">Contact</a>
         </li>
-        <li className={location.pathname === "/Cart" ? "active" : ""}>
-          <a href="/Cart">Cart</a>
-        </li>
       </ul>
-      <a href="/Memberships">
-        <button>Join Now</button>
+      <a href="/SignIn">
+        <img
+          src={theme == "light" ? account_black : account_blue}
+          alt=""
+          className="account-icon"
+        />
       </a>
-
+      <a href="/Cart">
+        <img
+          src={theme == "light" ? shopping_cart_black : shopping_cart_colour}
+          alt=""
+          className="shopping-cart-icon"
+        />
+      </a>
       <img
         onClick={() => {
           toggle_mode();
@@ -58,13 +67,6 @@ const Navbar = ({ theme, setTheme }) => {
         alt=""
         className="toggle-icon"
       />
-      <a href="/SignIn">
-        <img
-          src={theme == "light" ? account_black : account_blue}
-          alt=""
-          className="account-icon"
-        />
-      </a>
     </div>
   );
 };

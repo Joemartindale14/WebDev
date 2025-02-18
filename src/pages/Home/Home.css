@@ -72,11 +72,6 @@
   display: block;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.hero .content .page-links .img-item img:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 .button-overlay {
   position: absolute;
@@ -96,6 +91,9 @@
 }
 .button-overlay:hover {
   background-color: #0095ff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
 }
 .content hr{
     height: 2px;

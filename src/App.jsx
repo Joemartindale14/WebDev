@@ -47,7 +47,7 @@ const App = () => {
             <Route path="/Contact" element={<Contact />} />
             <Route path="/SignIn" element={<SignIn />} />
             <Route path="/SignUp" element={<SignUp />} />
-            <Route path="/Cart" element={<Cart />} /> {/* Add the Cart route */}
+            <Route path="/Cart" element={<Cart />} />
           </Routes>
           <Footer />
           <ToastContainer theme="dark" position="top-center" />

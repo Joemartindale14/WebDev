@@ -4,29 +4,6 @@
   gap: 30px;
   padding: 0 0 50px 0;
 }
-.header-container {
-  display: flex;
-  position: relative;
-  width: 100%;
-  height: 200px;
-}
-.header-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.overlay-text{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: whitesmoke;
-  margin: 0;
-  font-size: 30px;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 20px;
-}
 .merchandise hr{
   height: 2px;
   width: 50%;
@@ -138,40 +115,39 @@
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
 }
 .product-card-buttons .add  {
-  width: 20%;
-  background-color: #28a745 ;
-  color: #fff;
+  width: 25%;
+  color: black;
   padding: 5px 10px;
   margin-top: 10px;
-  border: none;
-  border-radius: 5px;
+  border: 1px solid #a1a1a1;
+  border-radius: 30px;
   cursor: pointer;
   font-size: 1.4rem;
-  transition: background-color 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .product-card-buttons .add:hover {
-  background-color: #218838;
+  background-color: #3a8a4b;
+  color: whitesmoke;
+  transform: translateY(-5px);
 }
 .product-card-buttons .remove  {
-  width: 20%;
-  background-color: #dc3545 ;
-  color: #fff;
+  width: 25%;
+  color: black;
   padding: 5px 10px;
   margin-top: 10px;
-  border: none;
-  border-radius: 5px;
+  border: 1px solid #a1a1a1;
+  border-radius: 30px;
   cursor: pointer;
   font-size: 1.4rem;
-  transition: background-color 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .product-card-buttons .remove:hover {
-  background-color: #c82333;
-}
-.product-card button:hover {
-  background-color: #1d1d1d;
+  background-color: #c75863;
+  color: whitesmoke;
+  transform: translateY(-5px);
 }
 /* Button Styles */
 .filters button {
