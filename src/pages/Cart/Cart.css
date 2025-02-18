@@ -14,14 +14,15 @@
   }
   .cart h2{
     color: whitesmoke;
-    font-size: 3rem;
+    font-size: 4rem;
     text-align: center;
   }
   .cart h6{
     color: whitesmoke;
     font-size: 1.8rem;
     text-align: center;
-    margin-top: 15px;
+    margin-top: 25px;
+    font-weight: 200;
   }
   .cart-items {
     display: flex;

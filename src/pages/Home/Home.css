@@ -1,72 +1,96 @@
-.hero {
-  min-height: 100vh;
-  position: relative;
-  background: url(/landscape_img.webp) rgba(0, 0, 0, 0.6);
-  background-blend-mode: darken;
-  background-size: cover;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  padding: 150px 80px 70px 80px;
-}
-.hero .content {
+.home {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  padding: 0 0 50px 0;
 }
-.hero .content .title {
-  color: whitesmoke;
-  font-size: 4rem;
+.top-section{
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 500px;
 }
-.hero .content .sub-title p {
+.top-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the entire container */
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: brightness(50%); /* Adjust the percentage to make the image darker */
+}
+.title-text{
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 20px;
+}
+.title-text h1 {
+  color: white;
+  font-size: 5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Adds shadow to the text */
+}
+.title-text p {
   font-weight: 400;
-  color: whitesmoke;
+  color: white;
   font-size: 1.8rem;
   line-height: 45px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Adds shadow to the text */
 }
-.hero .content .sub-title p:last-child {
+.title-text p:last-child {
   color: #0095ff;
 }
-.hero .content .buttons {
+.title-text .buttons {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 25px;
+  margin-top: 40px;
 }
-.hero .content .buttons button {
-  padding: 15px 30px;
-  font-size: 1.2rem;
-  color: #0095ff;
-  border: 1px solid #0095ff;
-  background: transparent;
-  transition: 0.3s;
-}
-.hero .content .buttons button:hover {
-  cursor: pointer;
+.title-text .buttons button {
+  border: none;
+  color: whitesmoke;
   background: #0095ff;
+  padding: 15px 15px;
+  font-size: 20px;
+  transition: 0.3s;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.title-text .buttons button:hover {
+  cursor: pointer;
+  background: #0267af;
   color: whitesmoke;
   transition: 0.3s;
 }
-.hero .content .information{
+.information{
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: 25px 50px 25px 50px;
+}
+.information p{
   font-weight: 300;
   color: whitesmoke;
   font-size: 1.5rem;
   line-height: 35px;
-  text-align: center;
-  margin-top: 10px;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.4);
 }
-.hero .content .page-links {
+.home .page-links {
   display: flex;
   justify-content: space-between;
   height: 300px;
   gap: 20px;
   align-items: center;
+  margin: 25px 50px 25px 50px;
 }
-.hero .content .page-links .img-item {
+.home .page-links .img-item {
   position: relative;
 }
-.hero .content .page-links .img-item img {
+.home .page-links .img-item img {
   width: 100%;
   height: auto;
   display: block;
@@ -95,65 +119,65 @@
   left: 50%;
   transform: translate(-50%, -60%);
 }
-.content hr{
-    height: 2px;
-    width: 50%;
-    background-color: #e2e2e2;
-    border: none;
-    margin: 30px auto;
+ hr{
+  height: 2px;
+  width: 50%;
+  background-color: #e2e2e2;
+  border: none;
+  margin: 30px auto;
 }
 @media (max-width: 1050px) {
   header {
     margin-left: 2.5rem;
   }
-  .hero {
+  .home {
     background-position: center;
   }
-  .hero .content .title {
+  .home  .title {
     font-size: 2.75rem;
   }
-  .hero .content .sub-title p {
+  .home  .sub-title p {
     font-size: 1.3rem;
     line-height: normal;
     margin-bottom: 5px;
   }
-  .hero .information p{
+  .home .information p{
     font-size: 1.3rem;
     line-height: normal;
     margin-bottom: 5px;
   }
 }
 @media (max-width: 880px) {
-  .hero {
+  .home {
     background-position: center;
   }
-  .hero .content .title {
+  .home  .title {
     font-size: 2.45rem;
   }
-  .hero .content .sub-title p {
+  .home  .sub-title p {
     font-size: 1.2rem;
   }
-  .hero .information p{
+  .home .information p{
     font-size: 1.2rem;
   }
 }
 @media (max-width: 600px) {
-  .hero {
+  .home {
     background-position: center;
   }
-  .hero .content .title {
+  .home  .title {
     font-size: 2.2rem;
   }
-  .hero .content .sub-title p {
+  .home  .sub-title p {
     font-size: 1rem;
   }
-  .hero .content .buttons button {
+  .home  .buttons button {
     font-size: 1rem;
   }
-  .hero .information p{
+  .home .information p{
     font-size: 1.2rem;
   }
-  .hero .content .page-links{
+  .home  .page-links{
     flex-direction: column;
   }
   .button-overlay{
@@ -164,10 +188,10 @@
   header {
     margin-left: 2rem;
   }
-  .hero {
+  .home {
     background-position: center;
   }
-  .hero .content .buttons {
+  .home  .buttons {
     flex-direction: column;
     gap: 20px;
     align-items: flex-start;

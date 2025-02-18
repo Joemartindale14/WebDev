@@ -1,23 +1,25 @@
 import React from "react";
 import "./Home.css";
 
-const Hero = () => {
+const Home = () => {
   return (
-    <section className="hero">
-      <div className="content">
-        <div className="title">
-          <h1>LETS</h1>
-          <h1>GET</h1>
-          <h1>MOVING!</h1>
-        </div>
-        <div className="sub-title">
-          <p>Welcome to your Fitness Life</p>
-          <p>Reach Your Potential</p>
-        </div>
-        <div className="buttons">
-          <a href="/Contact">
-            <button>Need Assistance?</button>
-          </a>
+    <section className="home">
+        <div className="top-section">
+        <img src="/landscape_img.webp" alt="Home" loading="lazy"/>
+          <div className="title-text">
+            <h1>Welcome to Strive Fusion!</h1>
+            <h1></h1>
+            <p>We can provide the support and space for your success.</p>
+            <p>Your fitness journey begins here!</p>
+            <div className="buttons">
+              <a href="/Memberships">
+                <button>Join Now!</button>
+              </a>
+              <a href="/Contact">
+                <button>Need Assistance?</button>
+              </a>
+            </div>          
+          </div>
         </div>
         <hr />
         <div className="information">
@@ -25,7 +27,7 @@ const Hero = () => {
             The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, 
             content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as 
             their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have 
-            evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            evolved over the years, sometimes by accident, sometimes on purpose.
           </p>
           <br/>
           <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
@@ -62,10 +64,9 @@ const Hero = () => {
             </a>
           </div>
         </div>
-      </div>
     </section>
     
   );
 };
 
-export default Hero;
+export default Home;

@@ -53,11 +53,10 @@
   font-size: 20px;
   transition: 0.3s;
   border-radius: 10px;
+  cursor: pointer;
 }
 .contact form button:hover {
-  transition: 0.3s;
-  background: #0267af;
-  cursor: pointer;
+  background: #0267af; 
 }
 @media (max-width: 1160px) {
   .contact {
