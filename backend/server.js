@@ -5,6 +5,7 @@ const User = require("./models/User");
 const Class = require("./models/Class");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const cors = require("cors");
 require("dotenv").config();
 
 //express app
@@ -18,6 +19,12 @@ app.use(bodyParser.json());
 mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true }) 
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
+
+  // Allow requests from your front-end (localhost:5173)
+app.use(cors({
+  origin: 'http://localhost:5173',  // Allow your front-end domain
+}));
+
 
   // sign up route
   app.post('/signup', async (req, res) => {

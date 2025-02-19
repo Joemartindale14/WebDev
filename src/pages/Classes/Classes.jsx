@@ -1,18 +1,20 @@
 import React from "react";
 import HeaderContainer from "../../components/HeaderContainer/HeaderContainer";
-import ImageTextPair from "../../components/ImageTextPair/ImageTextPair";
+import Timetable from "../../components/Timetable/Timetable";
 import "./Classes.css";
+import { ClassBookingProvider } from "../../context/ClassBookingContext";
 
 const WorkoutSessions = () => {
   return (
+    <ClassBookingProvider>
     <section className="workout_session">
       <HeaderContainer imageSrc="/classes_header_img.webp" title="CLASSES" loading="lazy"/>
       <hr />
-      <ImageTextPair imageSrc="/entrance_img.webp" text="." loading="lazy"/>
-      <ImageTextPair imageSrc="/gymfloor_img.webp" text="." loading="lazy"/>
-      <ImageTextPair imageSrc="/studio_img.webp" text="." loading="lazy"/>
-      <ImageTextPair imageSrc="/changingrooms_img.webp" text="." loading="lazy"/>
+      <div className="classes-page">
+        <Timetable />
+      </div>
     </section>
+    </ClassBookingProvider>
   );
 };
 
