@@ -6,7 +6,7 @@ import "./Facilities.css";
 const Facilities = () => {
   return (
     <section className="facilities">
-        <HeaderContainer imageSrc="/facilities_header_img.webp" title="Facilities" loading="lazy"/>
+        <HeaderContainer imageSrc="/facilities_header_img.webp" title="FACILITIES" loading="lazy"/>
         <hr />
         <ImageTextPair imageSrc="/entrance_img.webp" heading="FRONT-OF-HOUSE" text="At Strive Fusion, our front-of-house desk is your go-to spot for a quick, nutritious boost before or after your workout.
                                                           

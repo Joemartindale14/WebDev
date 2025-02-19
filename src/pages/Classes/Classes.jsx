@@ -6,7 +6,7 @@ import "./Classes.css";
 const WorkoutSessions = () => {
   return (
     <section className="workout_session">
-      <HeaderContainer imageSrc="/classes_header_img.webp" title="Classes" loading="lazy"/>
+      <HeaderContainer imageSrc="/classes_header_img.webp" title="CLASSES" loading="lazy"/>
       <hr />
       <ImageTextPair imageSrc="/entrance_img.webp" text="." loading="lazy"/>
       <ImageTextPair imageSrc="/gymfloor_img.webp" text="." loading="lazy"/>

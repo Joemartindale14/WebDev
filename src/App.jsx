@@ -16,7 +16,7 @@ import SignUp from "./pages/SignUp/SignUp";
 import BurgerIcon from "./components/BurgerIcon/BurgerIcon";
 import DropdownMenu from "./components/DropdownMenu/DropdownMenu";
 import { CartProvider } from "./context/CartContext";
-import Cart from "./pages/Cart/Cart"; // Import the Cart component
+import Cart from "./pages/Cart/Cart"; 
 
 const App = () => {
   const current_theme = localStorage.getItem("current_theme");

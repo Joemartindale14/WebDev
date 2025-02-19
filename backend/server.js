@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const User = require("./models/User");
+const Class = require("./models/Class");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
@@ -44,6 +45,50 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
       res.status(400).send(err.message);
     }
   });
+
+  // get all classes route
+app.get('/api/classes', async (req, res) => {
+    try {
+      const classes = await Class.find();
+      res.send(classes);
+    } catch (err) {
+      res.status(400).send(err.message);
+    }
+  });
+
+  // book class route
+  app.post('/api/book', async (req, res) => {
+    const { classId } = req.body;
+    try {
+      const classItem = await Class.findById(classId);
+      if (classItem) {
+        classItem.bookings += 1;
+        await classItem.save();
+        res.json({ success: true });
+      } else {
+        res.status(404).json({ success: false, message: 'Class not found' });
+      }
+    } catch (err) {
+      res.status(400).send(err.message);
+    }
+  });
+
+// Cancel a booking
+app.post('/api/cancel', async (req, res) => {
+  const { classId } = req.body;
+  try {
+    const classItem = await Class.findById(classId);
+    if (classItem && classItem.bookings > 0) {
+      classItem.bookings -= 1;
+      await classItem.save();
+      res.json({ success: true });
+    } else {
+      res.status(404).json({ success: false, message: 'Class not found or no bookings to cancel' });
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
 
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

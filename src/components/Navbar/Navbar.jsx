@@ -1,12 +1,12 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import "./Navbar.css";
-import logo_white from "../../assets/logo_black.png";
-import logo_black from "../../assets/logo_white.png";
+import logo_black from "../../assets/logo_black.png";
+import logo_colour from "../../assets/logo_colour.png";
 import toggle_light from "../../assets/night.png";
 import toggle_dark from "../../assets/day.png";
 import account_black from "../../assets/account_black.png";
-import account_blue from "../../assets/account_blue.png";
+import account_colour from "../../assets/account_colour.png";
 import shopping_cart_black from "../../assets/shopping_cart_black.png";
 import shopping_cart_colour from "../../assets/shopping_cart_colour.png";
 
@@ -20,7 +20,7 @@ const Navbar = ({ theme, setTheme }) => {
     <div className="navbar">
       <a href="/">
         <img
-          src={theme == "light" ? logo_white : logo_black}
+          src={theme == "light" ? logo_black : logo_colour}
           alt=""
           className="logo"
         />
@@ -47,7 +47,7 @@ const Navbar = ({ theme, setTheme }) => {
       </ul>
       <a href="/SignIn">
         <img
-          src={theme == "light" ? account_black : account_blue}
+          src={theme == "light" ? account_black : account_colour}
           alt=""
           className="account-icon"
         />

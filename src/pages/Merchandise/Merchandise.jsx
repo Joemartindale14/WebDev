@@ -78,7 +78,7 @@ const Merchandise = () => {
 
     return (
         <section className="merchandise">
-          <HeaderContainer imageSrc="/merchandise_header_img.webp" title="Merchandise"/>
+          <HeaderContainer imageSrc="/merchandise_header_img.webp" title="MERCHANDISE"/>
           <hr />
         <div className="merch-content"> 
               <div className="filters">

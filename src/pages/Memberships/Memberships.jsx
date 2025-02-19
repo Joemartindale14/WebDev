@@ -26,7 +26,7 @@ const Pricing = () => {
   ];
   return (
     <section className="pricing">
-      <HeaderContainer imageSrc="/memberships_header_img.webp" title="Memberships" loading="lazy"/>
+      <HeaderContainer imageSrc="/memberships_header_img.webp" title="MEMBERSHIPS" loading="lazy"/>
       <hr />
       <div className="wrapper">
         {pricing.map((element) => {
