@@ -13,6 +13,8 @@ import Contact from "./pages/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
+import Account from "./pages/Account/Account";
+import ProtectedRoute from "./components/ProtectedRoute";
 import BurgerIcon from "./components/BurgerIcon/BurgerIcon";
 import DropdownMenu from "./components/DropdownMenu/DropdownMenu";
 import { CartProvider } from "./context/CartContext";
@@ -34,24 +36,25 @@ const App = () => {
   return (
     <CartProvider>
       <Router>
-        <div className={`container ${theme}`}>
-          <Navbar theme={theme} setTheme={setTheme} />
-          <BurgerIcon toggleMenu={toggleMenu} />
-          <DropdownMenu isOpen={isMenuOpen} />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Classes" element={<Classes />} />
-            <Route path="/Facilities" element={<Facilities />} />
-            <Route path="/Memberships" element={<Memberships />} />
-            <Route path="/Merchandise" element={<Merchandise />} />
-            <Route path="/Contact" element={<Contact />} />
-            <Route path="/SignIn" element={<SignIn />} />
-            <Route path="/SignUp" element={<SignUp />} />
-            <Route path="/Cart" element={<Cart />} />
-          </Routes>
-          <Footer />
-          <ToastContainer theme="dark" position="top-center" />
-        </div>
+          <div className={`container ${theme}`}>
+            <Navbar theme={theme} setTheme={setTheme} />
+            <BurgerIcon toggleMenu={toggleMenu} />
+            <DropdownMenu isOpen={isMenuOpen} />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/Classes" element={<Classes />} />
+              <Route path="/Facilities" element={<Facilities />} />
+              <Route path="/Memberships" element={<Memberships />} />
+              <Route path="/Merchandise" element={<Merchandise />} />
+              <Route path="/Contact" element={<Contact />} />
+              <Route path="/SignIn" element={<SignIn />} />
+              <Route path="/SignUp" element={<SignUp />} />
+              <Route path="/Account" element={<ProtectedRoute element={<Account />} />} />
+              <Route path="/Cart" element={<Cart />} />
+            </Routes>
+            <Footer />
+            <ToastContainer theme="dark" position="top-center" />
+          </div>
       </Router>
     </CartProvider>
   );

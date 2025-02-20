@@ -7,6 +7,18 @@ const User = require("../models/User");
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
+  // Middleware to authenticate token
+  const authenticateToken = (req, res, next) => {
+    const token = req.headers["authorization"]?.split(" ")[1];
+    if (!token) return res.status(401).send("Access denied");
+
+    jwt.verify(token, JWT_SECRET, (err, user) => {
+      if (err) return res.status(403).send("Invalid token");
+      req.user = user;
+      next();
+    });
+  };
+
   // sign up route
   router.post('/signup', async (req, res) => {
     const { firstName, lastName, email, password, address, postcode } = req.body;
@@ -33,5 +45,15 @@ const JWT_SECRET = process.env.JWT_SECRET;
       res.status(400).send(err.message);
     }
   });
+
+  // account route
+router.get('/account', authenticateToken, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.userId).select("-password");
+    res.send(user);
+  } catch (err) {
+    res.status(400).send(err.message);
+  }
+});
 
   module.exports = router;

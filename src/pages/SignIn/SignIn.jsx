@@ -1,12 +1,24 @@
 import React, {useState} from "react";
+import axios from "axios";
 import "./SignIn.css";
 
 const SignIn = () => {
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 
-const handleSubmit = (e) => {
+const handleSubmit = async (e) => {
   e.preventDefault();
+  try {
+    const response = await axios.post("http://localhost:5000/api/auth/signin", {
+      email,
+      password,
+    });
+  alert("User signed in successfully.");
+  localStorage.setItem("token", response.data.token);
+  window.location.href = "/account";
+  } catch (error) {
+    alert("Invalid email or password.");
+  }
 };
 
   return (

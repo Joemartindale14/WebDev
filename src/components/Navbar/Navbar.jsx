@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import "./Navbar.css";
 import logo_black from "../../assets/logo_black.png";
 import logo_colour from "../../assets/logo_colour.png";
@@ -15,50 +15,61 @@ const Navbar = ({ theme, setTheme }) => {
     theme == "light" ? setTheme("dark") : setTheme("light");
   };
   const location = useLocation();
+  const isAuthenticated = !!localStorage.getItem("token");
 
   return (
     <div className="navbar">
-      <a href="/">
+      <Link to="/">
         <img
           src={theme == "light" ? logo_black : logo_colour}
           alt=""
           className="logo"
         />
-      </a>
+      </Link>
       <ul>
         <li className={location.pathname === "/" ? "active" : ""}>
-          <a href="/">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li className={location.pathname === "/Facilities" ? "active" : ""}>
-          <a href="/Facilities">Facilities</a>
+          <Link to="/Facilities">Facilities</Link>
         </li>
         <li className={location.pathname === "/Memberships" ? "active" : ""}>
-          <a href="/Memberships">Memberships</a>
+          <Link to="/Memberships">Memberships</Link>
         </li>
         <li className={location.pathname === "/Merchandise" ? "active" : ""}>
-          <a href="/Merchandise">Merchandise</a>
+          <Link to="/Merchandise">Merchandise</Link>
         </li>
         <li className={location.pathname === "/Classes" ? "active" : ""}>
-          <a href="/Classes">Classes</a>
+          <Link to="/Classes">Classes</Link>
         </li>
         <li className={location.pathname === "/Contact" ? "active" : ""}>
-          <a href="/Contact">Contact</a>
+          <Link to="/Contact">Contact</Link>
         </li>
       </ul>
-      <a href="/SignIn">
+      {isAuthenticated ? (
+      <Link to="/Account">
         <img
           src={theme == "light" ? account_black : account_colour}
           alt=""
           className="account-icon"
         />
-      </a>
-      <a href="/Cart">
+      </Link>
+      ) : (
+      <Link to="/SignIn">
+        <img
+          src={theme == "light" ? account_black : account_colour}
+          alt=""
+          className="account-icon"
+        />
+      </Link>
+      )}
+      <Link to="/Cart">
         <img
           src={theme == "light" ? shopping_cart_black : shopping_cart_colour}
           alt=""
           className="shopping-cart-icon"
         />
-      </a>
+      </Link>
       <img
         onClick={() => {
           toggle_mode();

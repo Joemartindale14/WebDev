@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import axios from "axios";
 import "./SignUp.css";
 
 const SignUp = () => {
@@ -9,8 +10,21 @@ const [address, setAddress] = useState("");
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 
-const handleSubmit = (e) => {
+const handleSubmit = async (e) => {
   e.preventDefault();
+try {
+  const response = await axios.post("http://localhost:5000/api/auth/signup", {
+    firstName,
+    lastName,
+    postcode,
+    address,
+    email,
+    password,
+  });
+  alert("User has been created successfully.");
+} catch (error) {
+  alert("Error creating user.");
+}
 };
 
   return (

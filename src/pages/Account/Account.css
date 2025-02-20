@@ -1,0 +1,95 @@
+.account-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.account-container hr{
+  height: 2px;
+  width: 50%;
+  background-color: #e2e2e2;
+  border: none;
+  margin: 30px auto;
+}
+.account-page-content{
+  display: flex;
+  margin: 50px 50px 50px 50px;
+  gap: 20px;
+}
+.account-sidebar {
+  width: 300px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  background-color: whitesmoke;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-right: 50px;
+}
+.account-sidebar hr{
+  height: 2px;
+  width: 100%;
+  background-color: #bebebe;
+  border: none;
+  margin: 30px auto;
+}
+.account-sidebar p {
+  font-size: 1.2rem;
+}
+.account-sidebar h3 {
+  font-size: 1.8rem;
+}
+.account-sidebar h2 {
+  margin-bottom: 20px;
+}
+.account-sidebar ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+.account-sidebar ul hr{
+  height: 2px;
+  width: 50%;
+  background-color: #bebebe;
+  border: none;
+  margin: 15px auto;
+}
+.account-sidebar ul li {
+  padding: 10px;
+  cursor: pointer;
+}
+.account-sidebar ul li:hover {
+  background-color: #444;
+}
+.sign-out-button {
+  width: 50%;
+  border: none;
+  color: whitesmoke;
+  background: #0095ff;
+  padding: 10px;
+  font-size: 20px;
+  transition: 0.3s;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.sign-out-button:hover {
+  background: #0267af;
+}
+.account-content {
+  flex: 1;
+  padding: 20px;
+}
+.account-details, .account-classes, .account-merchandise {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  border-radius: 10px;
+  color: whitesmoke;
+}
+.account-details h2, .account-classes h2, .account-merchandise h2 {
+  margin-bottom: 20px;
+}
+.account-details p, .account-classes p, .account-merchandise p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}

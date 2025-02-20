@@ -43,11 +43,7 @@ ul li{
   font-size: 18px;
   cursor: pointer;
 }
-.account-icon{
-  width: 35px;
-  cursor: pointer;
-}
-.shopping-cart-icon{
+.account-icon, .shopping-cart-icon{
   width: 35px;
   cursor: pointer;
 }
