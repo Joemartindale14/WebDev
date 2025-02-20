@@ -37,17 +37,17 @@ const Merchandise = () => {
     ];
 
     const filteredProducts = products.filter(product => {
-        // Filter by category
+        // filter by category
         if (filters.category.length > 0 && !filters.category.includes(product.category)) {
             return false;
         }
 
-        // Filter by stock
+        // filter by stock
         if (filters.inStock && product.stock === 0) {
             return false;
         }
 
-        // Filter by price range
+        // filter by price range
         if (filters.priceRange !== "all") {
             const [minPrice, maxPrice] = filters.priceRange.split('-').map(Number);
             if (product.price < minPrice || product.price > maxPrice) {
@@ -141,8 +141,7 @@ const Merchandise = () => {
                                 <p className="stock-status">{product.stock > 0 ? `${product.stock} in stock` : 'Out of stock'}</p>
                                 <p className="price">Price: £{product.price}</p>
                             <div className="product-card-buttons">
-                                <button className="add" onClick={() => addToCart(product)}>+</button>
-                                <button className="remove" onClick={() => decreaseQuantity(product.id)}>-</button>
+                                <button className="add" onClick={() => addToCart(product)}>+</button><button className="remove" onClick={() => decreaseQuantity(product.id)}>-</button>
                             </div>
                       </div>
                   ))}
