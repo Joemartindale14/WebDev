@@ -15,7 +15,7 @@ const handleSubmit = async (e) => {
     });
   alert("User signed in successfully.");
   localStorage.setItem("token", response.data.token);
-  window.location.href = "/account";
+  window.location.href = "/account"
   } catch (error) {
     alert("Invalid email or password.");
   }

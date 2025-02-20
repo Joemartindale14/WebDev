@@ -47,13 +47,31 @@ const JWT_SECRET = process.env.JWT_SECRET;
   });
 
   // account route
-router.get('/account', authenticateToken, async (req, res) => {
-  try {
-    const user = await User.findById(req.user.userId).select("-password");
-    res.send(user);
-  } catch (err) {
-    res.status(400).send(err.message);
-  }
-});
+  router.get('/account', authenticateToken, async (req, res) => {
+    try {
+      const user = await User.findById(req.user.userId).select("-password");
+      res.send(user);
+    } catch (err) {
+      res.status(400).send(err.message);
+    }
+  });
+
+  // update user details
+  router.put('/account', authenticateToken, async (req, res) => {
+    try {
+      const userId = req.user.userId;
+      const updatedData = req.body;
+
+      const user = await User.findByIdAndUpdate(userId, updatedData, { new: true });
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+
+      res.json(user);
+    } catch (error) {
+      console.error('Error updating user data', error);
+      res.status(500).json({ message: 'Server error' });
+    }
+  });
 
   module.exports = router;

@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
+  padding: 0 0 50px 0;
 }
 .account-container hr{
   height: 2px;
@@ -12,11 +13,10 @@
 }
 .account-page-content{
   display: flex;
-  margin: 50px 50px 50px 50px;
   gap: 20px;
+  padding: 0 80px 70px 80px;
 }
 .account-sidebar {
-  width: 300px;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -25,9 +25,10 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   margin-right: 50px;
+  gap: 10px;
 }
 .account-sidebar hr{
-  height: 2px;
+  height: 1px;
   width: 100%;
   background-color: #bebebe;
   border: none;
@@ -47,22 +48,85 @@
   padding: 0;
   width: 100%;
 }
-.account-sidebar ul hr{
-  height: 2px;
-  width: 50%;
-  background-color: #bebebe;
-  border: none;
-  margin: 15px auto;
-}
 .account-sidebar ul li {
+  display: flex;
   padding: 10px;
   cursor: pointer;
+  margin: auto;
 }
 .account-sidebar ul li:hover {
-  background-color: #444;
+  border-radius: 10px;
+  color: #014099;
 }
-.sign-out-button {
-  width: 50%;
+.account-sidebar ul li.active {
+  border-radius: 10px;
+  color: #004ab0;
+}
+.account-content {
+  flex: 1;
+
+}
+.edit-button {
+  width: 25%;
+  border: none;
+  color: whitesmoke;
+  background: #646464;
+  padding: 10px;
+  font-size: 20px;
+  transition: 0.3s;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.edit-button:hover {
+  background: #1e1e1e;
+}
+.account-details, .account-classes, .account-merchandise {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.account-details h2, .account-classes h2, .account-merchandise h2 {
+  font-weight: 600;
+  color: #333;
+  font-size: 2rem;
+  line-height: 35px;
+  padding: 10px;
+  background-color: whitesmoke;
+  border-radius: 4px;
+  margin-bottom: 30px;
+}
+.account-details p, .account-classes p, .account-merchandise p {
+  font-weight: 300;
+  color: #666;
+  font-size: 1.5rem;
+  line-height: 15px;
+  padding: 20px;
+}
+.edit-details {
+  padding: 20px;
+}
+.edit-details input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.changes-buttons{
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  margin-top: 20px;
+  gap: 10px;
+}
+.save-button {
+  width: 15%;
   border: none;
   color: whitesmoke;
   background: #0095ff;
@@ -71,25 +135,21 @@
   transition: 0.3s;
   border-radius: 10px;
   cursor: pointer;
-  margin-top: 20px;
 }
-.sign-out-button:hover {
+.save-button:hover {
   background: #0267af;
 }
-.account-content {
-  flex: 1;
-  padding: 20px;
-}
-.account-details, .account-classes, .account-merchandise {
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 20px;
-  border-radius: 10px;
+.cancel-button {
+  width: 15%;
+  border: none;
   color: whitesmoke;
+  background: #ff4d4d;
+  padding: 10px;
+  font-size: 20px;
+  transition: 0.3s;
+  border-radius: 10px;
+  cursor: pointer;
 }
-.account-details h2, .account-classes h2, .account-merchandise h2 {
-  margin-bottom: 20px;
-}
-.account-details p, .account-classes p, .account-merchandise p {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+.cancel-button:hover {
+  background: #ff1a1a;
 }
