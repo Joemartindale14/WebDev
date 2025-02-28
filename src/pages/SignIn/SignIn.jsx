@@ -9,7 +9,7 @@ const [password, setPassword] = useState("");
 const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    const response = await axios.post("http://localhost:5000/api/auth/signin", {
+    const response = await axios.post(process.env.HOST_URI+"api/auth/signin", {
       email,
       password,
     });

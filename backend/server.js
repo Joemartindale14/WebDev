@@ -20,7 +20,7 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 
   // allow requests from your front-end (localhost:5173)
   app.use(cors({
-    origin: 'http://localhost:5173',  // allow your front-end domain
+    origin: process.env.HOST_URI,  // allow your front-end domain
   }));
 
   // use auth routes
@@ -31,4 +31,5 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
+    console.log(process.env.HOST_URI+"/urlstring");
   });
