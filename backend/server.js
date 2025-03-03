@@ -14,21 +14,21 @@ const MONGO_URI = process.env.MONGO_URI; // set MongoDB URI
 
 app.use(bodyParser.json());
 
+// allow requests from your front-end (localhost:5173 and Vercel deployment)
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://web-dev-ashy-five.vercel.app'],  // allow your front-end domains
+}));
+
 mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true }) 
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
 
-  // allow requests from your front-end (localhost:5173)
-  app.use(cors({
-    origin: ['http://localhost:5173', 'https://web-dev-ashy-five.vercel.app/'],  // allow your front-end domain
-  }));
+// use auth routes
+app.use('/api/auth', authRoutes);
 
-  // use auth routes
-  app.use('/api/auth', authRoutes);
+//use class routes
+app.use('/api', classRoutes);
 
-  //use class routes
-  app.use('/api', classRoutes);
-
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
