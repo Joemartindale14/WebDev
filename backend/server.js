@@ -20,7 +20,7 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 
   // allow requests from your front-end (localhost:5173)
   app.use(cors({
-    origin: 'http://localhost:5173',  // allow your front-end domain
+    origin: ['http://localhost:5173', 'https://web-dev-ashy-five.vercel.app/'],  // allow your front-end domain
   }));
 
   // use auth routes
