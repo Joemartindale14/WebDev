@@ -9,19 +9,19 @@ export const ClassBookingProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchClasses = async () => {
-            const response = await axios.get(`http://localhost:5000/api/classes`);
+            const response = await axios.get(`${process.env.REACT_APP_BACKEND_URI}/api/classes`);
             setClasses(response.data);
         };
         fetchClasses();
     }, []);
 
     const bookClass = async (classId) => {
-        await axios.post(`http://localhost:5000/api/book`, { classId });
+        await axios.post(`${process.env.REACT_APP_BACKEND_URI}/api/book`, { classId });
         setBookings((prevBookings) => [...prevBookings, classId]);
     };
 
     const cancelBooking = async (classId) => {
-        await axios.post(`http://localhost:5000/api/cancel`, { classId });
+        await axios.post(`${process.env.REACT_APP_BACKEND_URI}/api/cancel`, { classId });
         setBookings((prevBookings) => prevBookings.filter((id) => id !== classId));
     };
 

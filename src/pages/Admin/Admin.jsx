@@ -19,7 +19,7 @@ const Admin = () => {
 
   const handleSaveMerchandise = async () => {
     try {
-      await axios.put(`http://localhost:5000/api/auth/merchandise`, merchandise, {
+      await axios.put(`${process.env.REACT_APP_BACKEND_URI}/api/auth/merchandise`, merchandise, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       alert("Merchandise updated successfully");
@@ -31,7 +31,7 @@ const Admin = () => {
 
   const handleSaveClasses = async () => {
     try {
-      await axios.put(`http://localhost:5000/api/auth/classes`, classes, {
+      await axios.put(`${process.env.REACT_APP_BACKEND_URI}/api/auth/classes`, classes, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       alert("Classes updated successfully");

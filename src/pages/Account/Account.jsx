@@ -15,7 +15,7 @@ const Account = () => {
     const fetchUserData = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get(`http://localhost:5000/api/auth/account`, {
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URI}/api/auth/account`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -46,7 +46,7 @@ const Account = () => {
     try {
       const token = localStorage.getItem("token");
       
-      const response = await axios.put(`http://localhost:5000/api/auth/account`, editUser, {
+      const response = await axios.put(`${process.env.REACT_APP_BACKEND_URI}/api/auth/account`, editUser, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
