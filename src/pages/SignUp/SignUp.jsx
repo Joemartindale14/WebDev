@@ -13,7 +13,7 @@ const [password, setPassword] = useState("");
 const handleSubmit = async (e) => {
   e.preventDefault();
 try {
-  const response = await axios.post(process.env.BACKEND_URI+"/api/auth/signup", {
+  const response = await axios.post(`http://localhost:5000/api/auth/signup`, {
     firstName,
     lastName,
     postcode,

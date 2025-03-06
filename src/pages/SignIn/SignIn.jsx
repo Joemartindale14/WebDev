@@ -5,12 +5,11 @@ import "./SignIn.css";
 const SignIn = () => {
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
-console.log(process.env.BACKEND_URI);
 
 const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    const response = await axios.post("http://localhost:5000/api/auth/signin", {
+    const response = await axios.post(`${process.env.BACKEND_URI}/api/auth/signin`, {
       email,
       password,
     });

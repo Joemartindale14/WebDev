@@ -1,3 +1,4 @@
+// filepath: c:\Users\Chris\Documents\WebDev\src\pages\Account\Account.jsx
 import React, { useEffect, useState } from "react";
 import HeaderContainer from "../../components/HeaderContainer/HeaderContainer";
 import axios from "axios";
@@ -14,7 +15,7 @@ const Account = () => {
     const fetchUserData = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get(process.env.BACKEND_URI+"/api/auth/account", {
+        const response = await axios.get(`http://localhost:5000/api/auth/account`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -40,12 +41,12 @@ const Account = () => {
   };
 
   const handleSave = async (e) => {
-    e.preventDefault(); // Prevent default form submission
-    console.log("Save button clicked"); // Debug log
+    e.preventDefault();
+    console.log("Save button clicked");
     try {
       const token = localStorage.getItem("token");
       
-      const response = await axios.put(process.env.BACKEND_URI+"/api/auth/account", editUser, {
+      const response = await axios.put(`http://localhost:5000/api/auth/account`, editUser, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
