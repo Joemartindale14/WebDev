@@ -14,9 +14,9 @@ const MONGO_URI = process.env.MONGO_URI; // set MongoDB URI
 
 app.use(bodyParser.json());
 
-// allow requests from your front-end (localhost:5173 and Vercel deployment)
+// allow requests from front-end
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://web-dev-ashy-five.vercel.app'],  // allow your front-end domains
+  origin: ['http://localhost:5173', 'https://web-dev-ashy-five.vercel.app'],  // allow front-end domains
 }));
 
 mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true }) 
