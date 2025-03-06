@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import HeaderContainer from "../../components/HeaderContainer/HeaderContainer";
 import axios from "axios";
 import "./Account.css";
+require("dotenv").config();
 
 const Account = () => {
   const [user, setUser] = useState(null);
@@ -43,6 +44,7 @@ const Account = () => {
     console.log("Save button clicked"); // Debug log
     try {
       const token = localStorage.getItem("token");
+      
       const response = await axios.put(process.env.BACKEND_URI+"/api/auth/account", editUser, {
         headers: {
           Authorization: `Bearer ${token}`,
