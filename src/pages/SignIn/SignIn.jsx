@@ -9,7 +9,7 @@ const [password, setPassword] = useState("");
 const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    const response = await axios.post(`https://web-dev-ashy-five.vercel.app/api/auth/signin`, {
+    const response = await axios.post(`${process.env.REACT_APP_BACKEND_URI}/api/auth/signin`, {
       email,
       password,
     });
