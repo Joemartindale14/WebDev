@@ -13,7 +13,7 @@ const SignIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${process.env.VERCEL_URL}`+"/api/auth/signin", {
+      const response = await axios.post(`${process.env.VERCEL_URL}/api/auth/signin`, {
         email,
         password,
       });
