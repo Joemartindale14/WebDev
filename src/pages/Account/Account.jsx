@@ -14,7 +14,7 @@ const Account = () => {
     const fetchUserData = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get(`https://web-dev-sigma-eosin.vercel.app/api/auth/account`, {
+        const response = await axios.get(process.env.VERCEL_URL+`/api/auth/account`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -45,7 +45,7 @@ const Account = () => {
     try {
       const token = localStorage.getItem("token");
       
-      const response = await axios.put(`https://web-dev-sigma-eosin.vercel.app/api/auth/account`, editUser, {
+      const response = await axios.put(process.env.VERCEL_URL+`/api/auth/account`, editUser, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

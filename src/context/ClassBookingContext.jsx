@@ -10,19 +10,19 @@ export const ClassBookingProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchClasses = async () => {
-            const response = await axios.get(`https://web-dev-sigma-eosin.vercel.app/api/classes`);
+            const response = await axios.get(process.env.VERCEL_URL+`/api/classes`);
             setClasses(response.data);
         };
         fetchClasses();
     }, []);
 
     const bookClass = async (classId) => {
-        await axios.post(`https://web-dev-sigma-eosin.vercel.app/api/book`, { classId });
+        await axios.post(process.env.VERCEL_URL+`/api/book`, { classId });
         setBookings((prevBookings) => [...prevBookings, classId]);
     };
 
     const cancelBooking = async (classId) => {
-        await axios.post(`https://web-dev-sigma-eosin.vercel.app/api/cancel`, { classId });
+        await axios.post(process.env.VERCEL_URL+`/api/cancel`, { classId });
         setBookings((prevBookings) => prevBookings.filter((id) => id !== classId));
     };
 

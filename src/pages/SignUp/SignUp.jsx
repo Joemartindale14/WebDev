@@ -14,7 +14,7 @@ const [password, setPassword] = useState("");
 const handleSubmit = async (e) => {
   e.preventDefault();
 try {
-  const response = await axios.post(`https://web-dev-sigma-eosin.vercel.app/api/auth/signup`, {
+  const response = await axios.post(process.env.VERCEL_URL+`/api/auth/signup`, {
     firstName,
     lastName,
     postcode,
