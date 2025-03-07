@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import HeaderContainer from "../../components/HeaderContainer/HeaderContainer";
 import axios from "axios";
 import "./Account.css";
-//require("dotenv").config();
+require("dotenv").config();
 
 const Account = () => {
   const [user, setUser] = useState(null);

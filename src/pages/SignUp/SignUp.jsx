@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import axios from "axios";
 import "./SignUp.css";
+require("dotenv").config();
 
 const SignUp = () => {
 const [firstName, setFirstName] = useState("");
@@ -13,7 +14,7 @@ const [password, setPassword] = useState("");
 const handleSubmit = async (e) => {
   e.preventDefault();
 try {
-  const response = await axios.post(`${process.env.REACT_APP_BACKEND_URI}/api/auth/signup`, {
+  const response = await axios.post(`${process.env.BACKEND_URI}/api/auth/signup`, {
     firstName,
     lastName,
     postcode,

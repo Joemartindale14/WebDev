@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
+require("dotenv").config();
 
 export const ClassBookingContext = createContext();
 
@@ -9,19 +10,19 @@ export const ClassBookingProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchClasses = async () => {
-            const response = await axios.get(`${process.env.REACT_APP_BACKEND_URI}/api/classes`);
+            const response = await axios.get(`${process.env.BACKEND_URI}/api/classes`);
             setClasses(response.data);
         };
         fetchClasses();
     }, []);
 
     const bookClass = async (classId) => {
-        await axios.post(`${process.env.REACT_APP_BACKEND_URI}/api/book`, { classId });
+        await axios.post(`${process.env.BACKEND_URI}/api/book`, { classId });
         setBookings((prevBookings) => [...prevBookings, classId]);
     };
 
     const cancelBooking = async (classId) => {
-        await axios.post(`${process.env.REACT_APP_BACKEND_URI}/api/cancel`, { classId });
+        await axios.post(`${process.env.BACKEND_URI}/api/cancel`, { classId });
         setBookings((prevBookings) => prevBookings.filter((id) => id !== classId));
     };
 
