@@ -13,7 +13,7 @@ const SignIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URI}/api/auth/signin`, {
+      const response = await axios.post(`https://web-dev-sigma-eosin.vercel.app/api/auth/signin`, {
         email,
         password,
       });

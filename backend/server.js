@@ -11,7 +11,7 @@ const classRoutes = require('./routes/classRoutes');
 const app = express(); // create Express app
 const PORT = process.env.PORT || 5000; // set port
 const MONGO_URI = process.env.MONGO_URI; // set MongoDB URI
-const BACKEND_URI = process.env.BACKEND_URI;
+const REACT_APP_BACKEND_URI = process.env.REACT_APP_BACKEND_URI;
 
 
 app.use(bodyParser.json());
@@ -22,7 +22,7 @@ app.use(cors({
 }));
 
 mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true }) 
-  .then(() => console.log("MongoDB connected" + "=======>" + `${BACKEND_URI}/api/auth/signin`))
+  .then(() => console.log("MongoDB connected" + "=======>" + `${REACT_APP_BACKEND_URI}/api/auth/signin`))
   .catch(err => console.log(err));
 
 // use auth routes
