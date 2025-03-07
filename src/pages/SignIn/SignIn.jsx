@@ -7,13 +7,13 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  console.log('Backend URL:', `${process.env.VERCEL_URL}/api/auth/signin`);
+  //console.log('Backend URL:', `${process.env.VERCEL_URL}/api/auth/signin`);
   //console.log(`${process.env.REACT_APP_BACKEND_URI}/api/auth/signin`);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(process.env.VERCEL_URL+`/api/auth/signin`, {
+      const response = await axios.post(`/api/auth/signin`, {
         email,
         password,
       });
