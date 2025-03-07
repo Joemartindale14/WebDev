@@ -26,7 +26,7 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch(err => console.log(err));
 
 // use auth routes
-app.use('/api/auth', authRoutes);
+app.use('https://web-dev-sigma-eosin.vercel.app/api/auth', authRoutes);
 
 //use class routes
 app.use('/api', classRoutes);
