@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
-require("dotenv").config();
+//require("dotenv").config();
 
 export const ClassBookingContext = createContext();
 

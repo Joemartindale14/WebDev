@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import axios from "axios";
 import "./SignUp.css";
-require("dotenv").config();
+//require("dotenv").config();
 
 const SignUp = () => {
 const [firstName, setFirstName] = useState("");
