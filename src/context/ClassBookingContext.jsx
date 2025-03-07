@@ -17,12 +17,12 @@ export const ClassBookingProvider = ({ children }) => {
     }, []);
 
     const bookClass = async (classId) => {
-        await axios.post(`${process.env.BACKEND_URI}/api/book`, { classId });
+        await axios.post(process.env.BACKEND_URI+`/api/book`, { classId });
         setBookings((prevBookings) => [...prevBookings, classId]);
     };
 
     const cancelBooking = async (classId) => {
-        await axios.post(`${process.env.BACKEND_URI}/api/cancel`, { classId });
+        await axios.post(process.env.BACKEND_URI+`/api/cancel`, { classId });
         setBookings((prevBookings) => prevBookings.filter((id) => id !== classId));
     };
 
