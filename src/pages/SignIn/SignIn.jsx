@@ -1,25 +1,26 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "./SignIn.css";
 
 const SignIn = () => {
-const [email, setEmail] = useState("");
-const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  try {
-    const response = await axios.post(`${process.env.REACT_APP_BACKEND_URI}/api/auth/signin`, {
-      email,
-      password,
-    });
-  alert("User signed in successfully.");
-  localStorage.setItem("token", response.data.token);
-  window.location.href = "/account"
-  } catch (error) {
-    alert("Invalid email or password.");
-  }
-};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(`http://localhost:5000/api/auth/signin`, {
+        email,
+        password,
+      });
+      alert("User signed in successfully.");
+      localStorage.setItem("token", response.data.token);
+      const isAdmin = response.data.isAdmin;
+      window.location.href = isAdmin ? "/admin" : "/account";
+    } catch (error) {
+      alert("Invalid email or password.");
+    }
+  };
 
   return (
     <div className="sign-in-container">

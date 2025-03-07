@@ -48,9 +48,21 @@ router.post('/signin', async (req, res) => {
     if (!isMatch) return res.status(400).json({ message: "Invalid email or password" });
 
     const token = jwt.sign({ userId: user._id, isAdmin: user.isAdmin }, JWT_SECRET, { expiresIn: '1h' });
-    res.json({ token });
+    res.json({ token, isAdmin: user.isAdmin });
   } catch (err) {
     res.status(500).send(err.message);
+  }
+});
+
+// create admin route
+router.post('/create-admin', async (req, res) => {
+  const { firstName, lastName, email, password, address, postcode } = req.body;
+  try {
+    const user = new User({ firstName, lastName, email, password, address, postcode, isAdmin: true });
+    await user.save();
+    res.status(201).send('Admin user created');
+  } catch (err) {
+    res.status(400).send(err.message);
   }
 });
 

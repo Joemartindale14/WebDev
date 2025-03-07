@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Admin.css';
 
 const Admin = () => {
   const [merchandise, setMerchandise] = useState([]);
   const [classes, setClasses] = useState([]);
 
   useEffect(() => {
-    // Fetch merchandise and classes data
   }, []);
 
   const handleMerchandiseChange = (e) => {
-    // Handle merchandise change
   };
 
   const handleClassesChange = (e) => {
-    // Handle classes change
   };
 
   const handleSaveMerchandise = async () => {
