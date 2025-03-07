@@ -10,7 +10,7 @@ export const ClassBookingProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchClasses = async () => {
-            const response = await axios.get(`${process.env.BACKEND_URI}/api/classes`);
+            const response = await axios.get(process.env.BACKEND_URI+`/api/classes`);
             setClasses(response.data);
         };
         fetchClasses();
