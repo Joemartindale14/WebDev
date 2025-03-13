@@ -70,14 +70,19 @@
 .information{
   text-align: center;
   padding: 10px;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: whitesmoke;
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   margin: 25px 50px 25px 50px;
 }
 .information p{
   font-weight: 300;
-  color: whitesmoke;
+  color: #666;
   font-size: 1.5rem;
   line-height: 35px;
+  text-align: center;
+  margin: 10px;
+  padding: 20px;
 }
 .home .page-links {
   display: flex;

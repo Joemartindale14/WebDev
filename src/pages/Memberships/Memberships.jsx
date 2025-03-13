@@ -55,7 +55,8 @@ const Pricing = () => {
                 <p>
                   <Check /> No Joining Fee
                 </p>
-                <Link to={"/"}>Join Now</Link>
+                <hr/>
+                <h1>AVAILABLE AT RECEPTION</h1>
               </div>
             </div>
           );
