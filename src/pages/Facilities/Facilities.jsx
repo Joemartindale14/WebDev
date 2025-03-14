@@ -12,7 +12,7 @@ const Facilities = () => {
                                                           
                                                           We offer a variety of protein shakes, energy bars, and healthy snacks to fuel your fitness journey. Looking for something to sip on? Our menu includes freshly brewed coffees and smoothies, perfect for recharging or relaxing.
                                                           
-                                                          Whether you're in need of a post-workout refuel or a pre-session pick-me-up, our front desk ensures you're energized with high-quality options that support your goals. Stop by and treat yourself to something delicious and nutritious to complement your fitness routine." loading="lazy" reverse/>
+                                                          Whether you're in need of a post-workout refuel or a pre-session pick-me-up, our front desk ensures you're energized with high-quality options that support your goals. Stop by and treat yourself to something delicious and nutritious to complement your fitness routine." loading="lazy" />
         <ImageTextPair imageSrc="/gymfloor_img.webp" heading="GYM FLOOR" text="At Strive Fusion, the gym floor is the heart of our fitness experience. Designed with a modern layout, it features dedicated zones for strength training, cardio, and functional exercises. 
         
                                                           Our free weights area is equipped with dumbbells, kettlebells, and barbells, while the cardio section offers treadmills, bikes and rowing machines. Take a look at our range of equipment and find the tools you need to reach your fitness goals.
@@ -22,7 +22,7 @@ const Facilities = () => {
         
                                                         With smooth, cushioned flooring, it provides the ideal environment for low-impact exercises, stretching, and mobility work. The studio is equipped with mats, blocks, resistance bands, and other props to enhance your sessions. 
                                                         
-                                                        Whether you're attending a calming yoga flow or an energizing dance class, the studio floor offers a spacious and comfortable setting, helping you stay focused and achieve your fitness goals in a peaceful, motivating atmosphere." loading="lazy" reverse />
+                                                        Whether you're attending a calming yoga flow or an energizing dance class, the studio floor offers a spacious and comfortable setting, helping you stay focused and achieve your fitness goals in a peaceful, motivating atmosphere." loading="lazy" />
         <ImageTextPair imageSrc="/changingrooms_img.webp" heading="CHANGING FACILITIES" text="At Strive Fusion, our changing rooms are designed with your comfort and convenience in mind. Equipped with private showers, clean toilets, and secure lockers, these spaces ensure you can freshen up before or after your workout. 
         
                                                               The lockers provide a safe place to store your personal belongings while you focus on your fitness goals. With modern, spacious layouts and ample privacy, our changing rooms offer a relaxing environment where you can easily transition in and out of your workout. 

@@ -4,7 +4,7 @@
   gap: 30px;
   padding: 0 0 50px 0;
 }
-.top-section{
+.top-section {
   display: flex;
   position: relative;
   width: 100%;
@@ -19,7 +19,7 @@
   left: 0;
   filter: brightness(50%);
 }
-.title-text{
+.title-text {
   width: 100%;
   position: absolute;
   top: 50%;
@@ -67,15 +67,15 @@
   color: whitesmoke;
   transition: 0.3s;
 }
-.information{
+.information {
   text-align: center;
   padding: 10px;
   background-color: whitesmoke;
   border-radius: 4px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  margin: 25px 50px 25px 50px;
+  margin: 15px 50px 25px 50px;
 }
-.information p{
+.information p {
   font-weight: 300;
   color: #666;
   font-size: 1.5rem;
@@ -83,6 +83,11 @@
   text-align: center;
   margin: 10px;
   padding: 20px;
+}
+.information img {
+  height: 100px;
+  width: 100px;
+  margin: 40px 40px 40px 40px;
 }
 .home .page-links {
   display: flex;
@@ -124,7 +129,7 @@
   left: 50%;
   transform: translate(-50%, -60%);
 }
- hr{
+hr {
   height: 2px;
   width: 50%;
   background-color: #e2e2e2;
@@ -132,73 +137,67 @@
   margin: 30px auto;
 }
 @media (max-width: 1050px) {
-  header {
-    margin-left: 2.5rem;
+  .title-text h1 {
+    font-size: 3.5rem;
   }
-  .home {
-    background-position: center;
+  .title-text p {
+    font-size: 1.5rem;
   }
-  .home  .title {
-    font-size: 2.75rem;
-  }
-  .home  .sub-title p {
-    font-size: 1.3rem;
-    line-height: normal;
-    margin-bottom: 5px;
-  }
-  .home .information p{
-    font-size: 1.3rem;
-    line-height: normal;
-    margin-bottom: 5px;
+  .title-text .buttons button {
+    font-size: 1.5rem;
   }
 }
 @media (max-width: 880px) {
-  .home {
-    background-position: center;
+  .title-text h1 {
+    font-size: 3rem;
   }
-  .home  .title {
-    font-size: 2.45rem;
-  }
-  .home  .sub-title p {
+  .title-text p {
     font-size: 1.2rem;
   }
-  .home .information p{
+  .title-text .buttons button {
     font-size: 1.2rem;
   }
 }
 @media (max-width: 600px) {
-  .home {
-    background-position: center;
-  }
-  .home  .title {
-    font-size: 2.2rem;
-  }
-  .home  .sub-title p {
-    font-size: 1rem;
-  }
-  .home  .buttons button {
-    font-size: 1rem;
-  }
-  .home .information p{
-    font-size: 1.2rem;
-  }
-  .home  .page-links{
-    flex-direction: column;
-  }
-  .button-overlay{
+  .title-text h1 {
     font-size: 2.5rem;
+  }
+  .title-text p {
+    font-size: 1rem;
+  }
+  .title-text .buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .title-text .buttons button {
+    font-size: 1rem;
+  }
+  .information {
+    margin: 25px 20px;
+  }
+  .home .page-links {
+    flex-direction: column;
+    height: auto;
+    gap: 15px;
+  }
+  .button-overlay {
+    font-size: 1.5rem;
   }
 }
 @media (max-width: 412px) {
-  header {
-    margin-left: 2rem;
+  .title-text h1 {
+    font-size: 2rem;
   }
-  .home {
-    background-position: center;
+  .title-text p {
+    font-size: 0.9rem;
   }
-  .home  .buttons {
-    flex-direction: column;
-    gap: 20px;
-    align-items: flex-start;
+  .title-text .buttons button {
+    font-size: 0.9rem;
+  }
+  .information p {
+    font-size: 1rem;
+  }
+  .button-overlay {
+    font-size: 1.2rem;
   }
 }

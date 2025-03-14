@@ -4,7 +4,7 @@
   flex-direction: column;
   padding: 0 0 50px 0;
 }
-.pricing hr{
+.pricing hr {
   height: 2px;
   width: 50%;
   background-color: #e2e2e2;
@@ -158,29 +158,47 @@
 .pricing .wrapper .card:nth-child(2) .title::before {
   display: none;
 }
-  /* Media queries for responsiveness */
-  @media (max-width: 1050px) {
-    .burger-icon {
-      display: flex;
-    }
+
+/* Media queries for responsiveness */
+@media (max-width: 1050px) {
+  .pricing .wrapper {
+    flex-direction: column;
+    min-width: 100%;
+    gap: 25px;
+    padding: 0 20px 50px 20px;
   }
-  @media (max-width: 880px) {
-    .burger-icon {
-      width: 35px;
-      height: 30px;
-    }
+  .pricing .wrapper .card {
+    height: auto;
   }
-  @media (max-width: 600px) {
-    .header-container img {
-      min-width: 100%;
-      height: 400px;
-      gap: 25px;
-    }
+  .pricing .wrapper .card .title h1 {
+    font-size: 2rem;
   }
-  @media (max-width: 412px) {
-    .header-container img {
-      min-width: 100%;
-      height: 400px;
-      gap: 25px;
-    }
+  .pricing .wrapper .card .title h3 {
+    font-size: 1.5rem;
   }
+  .pricing .wrapper .card .description p {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .pricing .wrapper .card .title h1 {
+    font-size: 1.5rem;
+  }
+  .pricing .wrapper .card .title h3 {
+    font-size: 1.2rem;
+  }
+  .pricing .wrapper .card .description p {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 480px) {
+  .pricing .wrapper .card .title h1 {
+    font-size: 1.2rem;
+  }
+  .pricing .wrapper .card .title h3 {
+    font-size: 1rem;
+  }
+  .pricing .wrapper .card .description p {
+    font-size: 0.8rem;
+  }
+}

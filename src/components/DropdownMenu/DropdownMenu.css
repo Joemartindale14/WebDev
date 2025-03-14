@@ -1,9 +1,6 @@
 .dropdown-menu {
     display: none;
-    position: absolute;
-    top: 175px;
-    left: 0;
-    background-color: #0095ff;
+    background-color: #004372;
     width: 100%;
     text-align: center;
     z-index: 100;
@@ -22,7 +19,7 @@
     padding: 15px 0;
   } 
   .dropdown-menu a {
-    color: inherit;
+    color: whitesmoke;
     text-decoration: none;
     height: 100%;
     display: flex;

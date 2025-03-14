@@ -44,8 +44,21 @@ export const CartProvider = ({ children }) => {
         });
     };
 
+    const increaseQuantity = (productId) => {
+        setCart((prevCart) => {
+            const existingProduct = prevCart.find((item) => item.id === productId);
+            if (existingProduct) {
+                return prevCart.map((item) =>
+                    item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
+                );
+            } else {
+                return prevCart;
+            }
+        });
+    };
+
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, decreaseQuantity }}>
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart, decreaseQuantity, increaseQuantity }}>
             {children}
         </CartContext.Provider>
     );

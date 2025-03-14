@@ -25,6 +25,11 @@ const Home = () => {
         <div className="information">
           <p>Welcome to Strive Fusion, your premier destination for fitness, health, and community. At Strive Fusion, we believe in pushing boundaries and achieving greatness, both inside and outside the gym. Whether you're just beginning your fitness journey or are an experienced athlete, our state-of-the-art facilities, expert trainers, and supportive environment are here to help you reach your full potential. We offer a variety of classes, personalized training programs, and cutting-edge equipment to ensure you stay motivated, challenged, and empowered every step of the way.
           </p>
+          <img src="src/assets/dumbbell-icon.png" alt="Home" loading="lazy"/>
+          <img src="src/assets/gym-icon.png" alt="Home" loading="lazy"/>
+          <img src="src/assets/spin-bike-icon.png" alt="Home" loading="lazy"/>
+          <img src="src/assets/yoga-mat-icon.png" alt="Home" loading="lazy"/>
+          <img src="src/assets/lockers-icon.png" alt="Home" loading="lazy"/>
           <br/>
           <p>Our mission at Strive Fusion is to create a welcoming space where individuals can come together to achieve their personal fitness goals. We’re more than just a gym – we’re a community of like-minded individuals who encourage each other to thrive. No matter where you are in your fitness journey, we’re here to guide and support you. Join Strive Fusion today and experience the fusion of strength, wellness, and personal growth. Together, we will help you strive for your best self!
           </p>

@@ -1,11 +1,10 @@
 .image-text-pair {
+    width: 80%;
     display: flex;
     align-items: center;
-    margin: 50px 50px 50px 50px;
+    justify-content: center;
+    margin: 50px auto;
     gap: 20px;
-  }
-  .image-text-pair.reverse {
-    flex-direction: row-reverse;
   }
   .image-text-pair img {
     width: 50%;

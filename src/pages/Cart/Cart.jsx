@@ -4,9 +4,10 @@ import { CartContext } from '../../context/CartContext';
 import './Cart.css';
 
 const Cart = () => {
-    const { cart, removeFromCart, decreaseQuantity } = useContext(CartContext);
+    const { cart, removeFromCart, decreaseQuantity, increaseQuantity } = useContext(CartContext);
 
-    console.log("Cart items:", cart);
+    const totalPrice = cart.reduce((total, product) => total + product.price * product.quantity, 0);
+    const totalQuantity = cart.reduce((total, product) => total + product.quantity, 0);
 
     return (
         <section className='cart'>
@@ -22,15 +23,21 @@ const Cart = () => {
                             <div className='cart-item-details'>
                                 <h3>{product.name}</h3>
                                 <p>{product.category}</p>
+                                <p>Quantity: <b>{product.quantity}</b></p>
                                 <p className='price'>£{product.price}</p>
-                                <p>Quantity: {product.quantity}</p>
-                                <div className="cart-item-buttons">
-                                    <button className="decrease" onClick={() => decreaseQuantity(product.id)}>-</button>
-                                    <button className="remove" onClick={() => removeFromCart(product.id)}>Remove from Cart</button>
-                                </div>
+                            </div>
+                            <div className="cart-item-buttons">
+                                <button className="decrease" onClick={() => decreaseQuantity(product.id)}>-</button>
+                                <button className="increase" onClick={() => increaseQuantity(product.id)}>+</button>
+                                <button className="remove" onClick={() => removeFromCart(product.id)}>Delete</button>
                             </div>
                         </div>
                     ))}
+                    <hr />
+                    <div className="total-price">
+                        <h1>Total Cart Price: <b>£{totalPrice.toFixed(2)}</b></h1>
+                        <h3>Total Item Quantity: {totalQuantity}</h3>
+                    </div>
                 </div>
             )}
         </section>
