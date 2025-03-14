@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "src/server.js",
+      "src": "server.js",
       "use": "@vercel/node"
     }
   ],
@@ -10,12 +10,12 @@
     {
       "src": "/(.*)",
       "headers": {
-        "Access-Control-Allow-Origin": "yourbackendurlherepleasedontleavethismessagehere",
+        "Access-Control-Allow-Origin": "https://joeback.vercel.app",
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
         "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Authorization",
         "Access-Control-Allow-Credentials": "true"
       },
-      "dest": "src/server.js"
+      "dest": "server.js"
     }
   ]
 }
