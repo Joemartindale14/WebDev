@@ -18,11 +18,11 @@ app.use(bodyParser.json());
 
 // allow requests from front-end
 app.use(cors({
-  origin: ['http://localhost:5173', process.env.VERCEL_URL],  // allow front-end domains
+  origin: ['http://localhost:5173', process.env.BACKEND_URI],  // allow front-end domains
 }));
 
 mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true }) 
-  .then(() => console.log("MongoDB connected" + "=======>" + process.env.VERCEL_URL+`/api/auth/signin`))
+  .then(() => console.log("MongoDB connected" + "=======>" + process.env.BACKEND_URI+`/api/auth/signin`))
   .catch(err => console.log(err));
 
 // use auth routes
