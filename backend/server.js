@@ -17,9 +17,23 @@ const MONGO_URI = process.env.MONGO_URI; // set MongoDB URI
 app.use(bodyParser.json());
 
 // allow requests from front-end
-app.use(cors({
-  origin: ['http://localhost:5173', process.env.BACKEND_URI],  // allow front-end domains
-}));
+// CORS configuration
+const corsOptions = {
+  origin: "*",
+  methods: ["POST", "GET", "OPTIONS", "PUT", "DELETE"],
+  credentials: false,
+  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"]
+};
+ 
+// Apply CORS middleware
+app.use(cors(corsOptions));
+ 
+// Handle preflight OPTIONS requests
+app.options('*', cors(corsOptions));
+ 
+// Parse JSON body
+app.use(express.json());
+ 
 
 mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true }) 
   .then(() => console.log("MongoDB connected" + "=======>" + process.env.BACKEND_URI+`/api/auth/signin`))
