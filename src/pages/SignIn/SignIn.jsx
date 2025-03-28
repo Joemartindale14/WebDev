@@ -7,9 +7,6 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  //console.log('Backend URL:', `${process.env.BACKEND_URI}/api/auth/signin`);
-  //console.log(`${process.env.REACT_APP_BACKEND_URI}/api/auth/signin`);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
