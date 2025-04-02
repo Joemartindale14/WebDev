@@ -1,21 +1,137 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import HeaderContainer from "../../components/HeaderContainer/HeaderContainer";
-import Timetable from "../../components/Timetable/Timetable";
+import { ClassBookingContext } from "../../context/ClassBookingContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./Classes.css";
-import { ClassBookingProvider } from "../../context/ClassBookingContext";
 
-const WorkoutSessions = () => {
+const Classes = () => {
+  const [sortBy, setSortBy] = useState("time");
+  const [filters, setFilters] = useState({
+    instructor: [],
+    timeRange: "all",
+  });
+
+  const { classes, bookClass } = useContext(ClassBookingContext);
+
+  const filteredClasses = classes.filter((classItem) => {
+    // filter by instructor
+    if (
+      filters.instructor.length > 0 &&
+      !filters.instructor.includes(classItem.instructor)
+    ) {
+      return false;
+    }
+
+    // filter by time
+    if (filters.timeRange !== "all") {
+      const [startTime, endTime] = filters.timeRange.split("-").map(Number);
+      const classTime = parseInt(classItem.time.replace(":", ""), 10);
+      if (classTime < startTime || classTime > endTime) {
+        return false;
+      }
+    }
+
+    return true;
+  });
+
+  const sortedClasses = filteredClasses.sort((a, b) => {
+    if (sortBy === "time") {
+      return a.time.localeCompare(b.time);
+    } else if (sortBy === "name") {
+      return a.name.localeCompare(b.name);
+    }
+    return 0;
+  });
+
+  const clearFilters = () => {
+    setFilters({
+      instructor: [],
+      timeRange: "all",
+    });
+    setSortBy("time");
+  };
+
+  const handleBookClass = async (classItem) => {
+    try {
+      const message = await bookClass(classItem._id);
+      toast.success(message);
+    } catch (error) {
+      toast.error("Error booking class. Please try again.");
+    }
+  };
+
   return (
-    <ClassBookingProvider>
-    <section className="workout_session">
-      <HeaderContainer imageSrc="/classes_header_img.webp" title="CLASSES" loading="lazy"/>
+    <section className="classes">
+      <HeaderContainer imageSrc="/classes_header_img.webp" title="CLASSES" />
       <hr />
-      <div className="classes-page">
-        <Timetable />
+      <div className="class-content">
+        <div className="filters">
+          <label>FILTER & SORT</label>
+          <hr />
+          <label>SORT BY:</label>
+          <select onChange={(e) => setSortBy(e.target.value)}>
+            <option value="time">Time</option>
+            <option value="name">Name</option>
+          </select>
+          <hr />
+          <div>
+            <label>INSTRUCTOR:</label>
+            <select
+              value={filters.instructor}
+              onChange={(e) => {
+                const selectedInstructors = Array.from(
+                  e.target.selectedOptions,
+                  (option) => option.value
+                );
+                setFilters({ ...filters, instructor: selectedInstructors });
+              }}
+            >
+              <option value="Instructor A">Instructor A</option>
+              <option value="Instructor B">Instructor B</option>
+              <option value="Instructor C">Instructor C</option>
+            </select>
+          </div>
+          <hr />
+          <div>
+            <label>TIME RANGE:</label>
+            <select
+              value={filters.timeRange}
+              onChange={(e) =>
+                setFilters({ ...filters, timeRange: e.target.value })
+              }
+            >
+              <option value="all">All</option>
+              <option value="800-1200">8:00 AM - 12:00 PM</option>
+              <option value="1200-1600">12:00 PM - 4:00 PM</option>
+              <option value="1600-2000">4:00 PM - 8:00 PM</option>
+            </select>
+          </div>
+          <hr />
+          <button onClick={clearFilters}>Clear Filters</button>
+        </div>
+        <div className="product-list">
+          {sortedClasses.map((classItem) => (
+            <div key={classItem._id} className="product-card">
+              <h3>{classItem.name}</h3>
+              <p>Time: {classItem.time}</p>
+              <p>Instructor: {classItem.instructor}</p>
+              <p>Bookings: {classItem.bookings}</p>
+              <div className="product-card-buttons">
+                <button
+                  className="add"
+                  onClick={() => handleBookClass(classItem)}
+                >
+                  Book Class
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
+      <ToastContainer />
     </section>
-    </ClassBookingProvider>
   );
 };
 
-export default WorkoutSessions;
+export default Classes;

@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import HeaderContainer from "../../components/HeaderContainer/HeaderContainer";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./Account.css";
-//require("dotenv").config();
 
 const Account = () => {
   const [user, setUser] = useState(null);
   const [activeSection, setActiveSection] = useState("details");
   const [isEditing, setIsEditing] = useState(false);
   const [editUser, setEditUser] = useState({});
+  const [bookedClasses, setBookedClasses] = useState([]);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -20,7 +22,13 @@ const Account = () => {
           },
         });
         setUser(response.data);
-        setEditUser(response.data);
+
+        // Fetch booked classes
+        const classesResponse = await axios.get("http://localhost:5000/api/classes");
+        const booked = classesResponse.data.filter((classItem) =>
+          response.data.bookedClasses.includes(classItem._id)
+        );
+        setBookedClasses(booked);
       } catch (error) {
         console.error("Error fetching user data", error);
       }
@@ -31,8 +39,8 @@ const Account = () => {
 
   const handleSignOut = () => {
     localStorage.removeItem("token");
-    window.location.href = "/signin"; 
-  }
+    window.location.href = "/signin";
+  };
 
   const handleEditChange = (e) => {
     const { name, value } = e.target;
@@ -41,10 +49,8 @@ const Account = () => {
 
   const handleSave = async (e) => {
     e.preventDefault();
-    console.log("Save button clicked");
     try {
       const token = localStorage.getItem("token");
-      
       const response = await axios.put("http://localhost:5000/api/auth/account", editUser, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -57,13 +63,37 @@ const Account = () => {
     }
   };
 
+  const handleCancelBooking = async (classItem) => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.post(
+        "http://localhost:5000/api/cancel",
+        { classId: classItem._id },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      toast.success(response.data.message);
+
+      // Remove the canceled class from the bookedClasses state
+      setBookedClasses((prevClasses) =>
+        prevClasses.filter((item) => item._id !== classItem._id)
+      );
+    } catch (error) {
+      console.error("Error cancelling booking:", error);
+      toast.error("Failed to cancel booking. Please try again.");
+    }
+  };
+
   if (!user) {
     return <div>Loading...</div>;
   }
 
   return (
     <div className="account-container">
-      <HeaderContainer imageSrc="/merchandise_header_img.webp" title="MY ACCOUNT"/>
+      <HeaderContainer imageSrc="/merchandise_header_img.webp" title="MY ACCOUNT" />
       <hr />
       <div className="account-page-content">
         <div className="account-sidebar">
@@ -71,28 +101,28 @@ const Account = () => {
           <h3>{user.firstName} {user.lastName}</h3>
           <hr />
           <ul>
-            <li 
+            <li
               className={activeSection === "details" ? "active" : ""}
               onClick={() => setActiveSection("details")}
             >
               Account Details
             </li>
             <hr />
-            <li 
+            <li
               className={activeSection === "classes" ? "active" : ""}
               onClick={() => setActiveSection("classes")}
             >
               My Bookings
             </li>
             <hr />
-            <li 
+            <li
               className={activeSection === "merchandise" ? "active" : ""}
               onClick={() => setActiveSection("merchandise")}
             >
               My Orders
             </li>
             <hr />
-            <li 
+            <li
               className="sign-out"
               onClick={handleSignOut}
             >
@@ -142,8 +172,8 @@ const Account = () => {
                     onChange={handleEditChange}
                   />
                   <div className="changes-buttons">
-                  <button type="submit" className="save-button">Save</button>
-                  <button type="button" className="cancel-button" onClick={() => setIsEditing(false)}>Cancel</button>
+                    <button type="submit" className="save-button">Save</button>
+                    <button type="button" className="cancel-button" onClick={() => setIsEditing(false)}>Cancel</button>
                   </div>
                 </form>
               ) : (
@@ -160,8 +190,24 @@ const Account = () => {
           )}
           {activeSection === "classes" && (
             <div className="account-classes">
-              <h2>My Classes</h2>
-              {/* Add logic to display booked classes */}
+              <h2>My Bookings</h2>
+              {bookedClasses.length > 0 ? (
+                bookedClasses.map((classItem) => (
+                  <div key={classItem._id}>
+                    <h3>{classItem.name}</h3>
+                    <p>Time: {classItem.time}</p>
+                    <p>Instructor: {classItem.instructor}</p>
+                    <button
+                      className="cancel"
+                      onClick={() => handleCancelBooking(classItem)}
+                    >
+                      Cancel Booking
+                    </button>
+                  </div>
+                ))
+              ) : (
+                <p>No classes booked yet.</p>
+              )}
             </div>
           )}
           {activeSection === "merchandise" && (

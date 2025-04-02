@@ -19,6 +19,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import BurgerIcon from "./components/BurgerIcon/BurgerIcon";
 import DropdownMenu from "./components/DropdownMenu/DropdownMenu";
 import { CartProvider } from "./context/CartContext";
+import { ClassBookingProvider } from "./context/ClassBookingContext";
 import Cart from "./pages/Cart/Cart"; 
 
 const App = () => {
@@ -36,28 +37,30 @@ const App = () => {
 
   return (
     <CartProvider>
-      <Router>
-          <div className={`container ${theme}`}>
-            <Navbar theme={theme} setTheme={setTheme} />
-            <BurgerIcon toggleMenu={toggleMenu} />
-            <DropdownMenu isOpen={isMenuOpen} />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/Classes" element={<Classes />} />
-              <Route path="/Facilities" element={<Facilities />} />
-              <Route path="/Memberships" element={<Memberships />} />
-              <Route path="/Merchandise" element={<Merchandise />} />
-              <Route path="/Contact" element={<Contact />} />
-              <Route path="/SignIn" element={<SignIn />} />
-              <Route path="/SignUp" element={<SignUp />} />
-              <Route path="/Account" element={<ProtectedRoute element={<Account />} />} />
-              <Route path="/Admin" element={<ProtectedRoute element={<Admin />} />} />
-              <Route path="/Cart" element={<Cart />} />
-            </Routes>
-            <Footer />
-            <ToastContainer theme="dark" position="top-center" />
-          </div>
-      </Router>
+      <ClassBookingProvider>
+          <Router>
+              <div className={`container ${theme}`}>
+                <Navbar theme={theme} setTheme={setTheme} />
+                <BurgerIcon toggleMenu={toggleMenu} />
+                <DropdownMenu isOpen={isMenuOpen} />
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/Classes" element={<Classes />} />
+                  <Route path="/Facilities" element={<Facilities />} />
+                  <Route path="/Memberships" element={<Memberships />} />
+                  <Route path="/Merchandise" element={<Merchandise />} />
+                  <Route path="/Contact" element={<Contact />} />
+                  <Route path="/SignIn" element={<SignIn />} />
+                  <Route path="/SignUp" element={<SignUp />} />
+                  <Route path="/Account" element={<ProtectedRoute element={<Account />} />} />
+                  <Route path="/Admin" element={<ProtectedRoute element={<Admin />} />} />
+                  <Route path="/Cart" element={<Cart />} />
+                </Routes>
+                <Footer />
+                <ToastContainer theme="dark" position="top-center" />
+              </div>
+          </Router>
+        </ClassBookingProvider>
     </CartProvider>
   );
 };

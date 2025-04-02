@@ -1,44 +1,176 @@
-.workout_session {
+.classes {
   display: flex;
-  gap: 30px;
   flex-direction: column;
+  gap: 30px;
   padding: 0 0 50px 0;
 }
-.workout_session hr{
+.classes hr {
   height: 2px;
   width: 50%;
   background-color: #e2e2e2;
   border: none;
   margin: 30px auto;
 }
-@media (max-width: 1520px) {
-  .workout_session {
-    min-width: 100%;
-    gap: 25px;
+.class-content {
+  display: flex;
+  gap: 20px;
+  padding: 0 80px 70px 80px;
+}
+.filters {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  background-color: whitesmoke;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-right: 50px;
+}
+.filters hr {
+  height: 2px;
+  background-color: #bebebe;
+  width: 100%;
+}
+.filters select {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  color: #555;
+  outline: none;
+  margin-top: 20px;
+}
+.filters input[type="checkbox"] {
+  padding: 10px;
+  border-radius: 5px;
+  margin-right: 15px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  color: #555;
+  outline: none;
+}
+.filters select:focus,
+.filters input[type="checkbox"]:focus {
+  border-color: #0066cc;
+}
+.filters label {
+  font-weight: bold;
+  color: #333;
+}
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  width: 80%;
+  padding: 20px;
+}
+.product-card hr {
+  height: 1px;
+  background-color: #bebebe;
+  width: 50%;
+}
+.product-card {
+  height: 400px;
+  background-color: whitesmoke;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+.product-card img {
+  width: 100%;
+  height: 160px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.product-card h3 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #333;
+}
+.product-card p {
+  font-size: 1rem;
+  margin: 5px 0;
+  color: #666;
+}
+.product-card .price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+.product-card .stock-status {
+  font-size: 1rem;
+  color: #999;
+  margin-top: 5px;
+}
+.product-card-buttons {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 5px;
+}
+.product-card-buttons .add {
+  background-color: #c4c4c4;
+  color: black;
+  padding: 5px 10px;
+  margin-top: 20px;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card-buttons .add:hover {
+  background-color: #3a8a4b;
+  color: whitesmoke;
+  transform: translateY(-5px);
+}
+.filters button {
+  background-color: #ec6363;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+.filters button:hover {
+  background-color: #ba4747;
+}
+@media (max-width: 768px) {
+  .merch-content {
+    flex-direction: column;
+    padding: 0 20px 50px 20px;
+  }
+  .filters {
+    margin-right: 0;
+    width: 100%;
+  }
+  .product-list {
+    width: 100%;
   }
 }
-@media (max-width: 1050px) {
-  .burger-icon {
-    display: flex;
+@media (max-width: 480px) {
+  .product-card {
+    padding: 15px;
   }
-}
-@media (max-width: 880px) {
-  .burger-icon {
-    width: 35px;
-    height: 30px;
+  .product-card h3 {
+    font-size: 1.2rem;
   }
-}
-@media (max-width: 600px) {
-  .header-container img {
-    min-width: 100%;
-    height: 400px;
-    gap: 25px;
+  .product-card p {
+    font-size: 0.9rem;
   }
-}
-@media (max-width: 412px) {
-  .header-container img {
-    min-width: 100%;
-    height: 400px;
-    gap: 25px;
+  .product-card .price {
+    font-size: 1.1rem;
   }
 }
