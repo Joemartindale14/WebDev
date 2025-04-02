@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const Class = require('../models/Class');
 const User = require('../models/User');
 
-// Middleware to authenticate token
+// middleware to authenticate token
 const authenticateToken = (req, res, next) => {
   const token = req.headers["authorization"]?.split(" ")[1];
   if (!token) return res.status(401).json({ message: "Access denied" });
@@ -16,7 +16,7 @@ const authenticateToken = (req, res, next) => {
   });
 };
 
-// Get all classes
+// get all classes
 router.get('/classes', async (req, res) => {
   try {
     const classes = await Class.find();
@@ -26,7 +26,7 @@ router.get('/classes', async (req, res) => {
   }
 });
 
-// Book a class
+// book a class
 router.post('/book', authenticateToken, async (req, res) => {
   const { classId } = req.body;
   const userId = req.user.userId;
@@ -52,7 +52,7 @@ router.post('/book', authenticateToken, async (req, res) => {
   }
 });
 
-// Cancel a booking
+// cancel a booking
 router.post('/cancel', authenticateToken, async (req, res) => {
   const { classId } = req.body;
   const userId = req.user.userId;

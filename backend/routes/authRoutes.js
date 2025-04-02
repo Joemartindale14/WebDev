@@ -7,7 +7,7 @@ const User = require("../models/User");
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
-// Middleware to authenticate token
+// middleware to authenticate token
 const authenticateToken = (req, res, next) => {
   const token = req.headers["authorization"]?.split(" ")[1];
   if (!token) return res.status(401).json({ message: "Access denied" });
@@ -19,7 +19,7 @@ const authenticateToken = (req, res, next) => {
   });
 };
 
-// Middleware to check if user is admin
+// middleware to check if user is admin
 const isAdmin = (req, res, next) => {
   if (!req.user.isAdmin) return res.status(403).json({ message: "Access denied" });
   next();
@@ -88,14 +88,12 @@ router.put('/account', authenticateToken, async (req, res) => {
   }
 });
 
-// Admin routes for updating merchandise and classes
+// admin routes for updating merchandise and classes
 router.put('/merchandise', authenticateToken, isAdmin, async (req, res) => {
-  // Logic to update merchandise
   res.send('Merchandise updated');
 });
 
 router.put('/classes', authenticateToken, isAdmin, async (req, res) => {
-  // Logic to update classes
   res.send('Classes updated');
 });
 

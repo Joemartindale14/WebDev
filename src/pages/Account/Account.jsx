@@ -77,7 +77,6 @@ const Account = () => {
       );
       toast.success(response.data.message);
 
-      // Remove the canceled class from the bookedClasses state
       setBookedClasses((prevClasses) =>
         prevClasses.filter((item) => item._id !== classItem._id)
       );

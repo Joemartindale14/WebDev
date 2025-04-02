@@ -11,13 +11,10 @@ const classRoutes = require('./routes/classRoutes');
 const app = express(); // create Express app
 const PORT = process.env.PORT || 5000; // set port
 const MONGO_URI = process.env.MONGO_URI; // set MongoDB URI
-//const REACT_APP_BACKEND_URI = process.env.REACT_APP_BACKEND_URI;
-
 
 app.use(bodyParser.json());
 
 // allow requests from front-end
-// CORS configuration
 const corsOptions = {
   origin: "*",
   methods: ["POST", "GET", "OPTIONS", "PUT", "DELETE"],
@@ -25,13 +22,10 @@ const corsOptions = {
   allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"]
 };
  
-// Apply CORS middleware
 app.use(cors(corsOptions));
  
-// Handle preflight OPTIONS requests
 app.options('*', cors(corsOptions));
  
-// Parse JSON body
 app.use(express.json());
  
 
