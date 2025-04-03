@@ -8,12 +8,12 @@ import "./Merchandise.css";
 const Merchandise = () => {
     const [sortBy, setSortBy] = useState('price');
     const [filters, setFilters] = useState({
-        category: [],
+        category: "all",
         inStock: false,
         priceRange: "all",
     });
 
-    const { addToCart, decreaseQuantity } = useContext(CartContext);
+    const { addToCart } = useContext(CartContext);
 
     const products = [
         { id: 1, name: 'T-shirt', price: 18, category: 'Clothing', stock: 50, imageUrl: "/tshirt_img.webp" },
@@ -40,8 +40,10 @@ const Merchandise = () => {
 
     const filteredProducts = products.filter(product => {
         //filter by category
-        if (filters.category.length > 0 && !filters.category.includes(product.category)) {
+        if (filters.category != "all" && filters.category.length > 0) {
+           if (!filters.category.includes(product.category)) {
             return false;
+            }
         }
 
         //filter by stock
@@ -56,7 +58,6 @@ const Merchandise = () => {
                 return false;
             }
         }
-
         return true;
     });
 
@@ -71,7 +72,7 @@ const Merchandise = () => {
 
     const clearFilters = () => {
         setFilters({
-            category: [],
+            category: "all",
             inStock: false,
             priceRange: "all",
         });
@@ -106,6 +107,7 @@ const Merchandise = () => {
                               setFilters({ ...filters, category: selectedCategories });
                           }}
                       >
+                          <option value="all">All</option>
                           <option value="Clothing">Clothing</option>
                           <option value="Accessories">Accessories</option>
                           <option value="Snacks">Snacks</option>

@@ -7,8 +7,7 @@ const Cart = () => {
     const { cart, removeFromCart, decreaseQuantity, increaseQuantity } = useContext(CartContext);
 
     const totalPrice = cart.reduce((total, product) => total + product.price * product.quantity, 0);
-    const totalQuantity = cart.reduce((total, product) => total + product.quantity, 0);
-
+    
     return (
         <section className='cart'>
             <HeaderContainer imageSrc="/merchandise_header_img.webp" title="CART"/>

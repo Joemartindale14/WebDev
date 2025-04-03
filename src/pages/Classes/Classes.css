@@ -13,10 +13,13 @@
 }
 .class-content {
   display: flex;
+  flex-direction: column;
   gap: 20px;
   padding: 0 80px 70px 80px;
 }
-.filters {
+.instructor-filters {
+  width: 50%;
+  margin: auto;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -24,14 +27,13 @@
   background-color: whitesmoke;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  margin-right: 50px;
 }
-.filters hr {
+.instructor-filters hr {
   height: 2px;
   background-color: #bebebe;
   width: 100%;
 }
-.filters select {
+.instructor-filters select {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -43,7 +45,7 @@
   outline: none;
   margin-top: 20px;
 }
-.filters input[type="checkbox"] {
+.instructor-filters input[type="checkbox"] {
   padding: 10px;
   border-radius: 5px;
   margin-right: 15px;
@@ -52,72 +54,71 @@
   color: #555;
   outline: none;
 }
-.filters select:focus,
-.filters input[type="checkbox"]:focus {
+.instructor-filters select:focus,
+.instructor-filters input[type="checkbox"]:focus {
   border-color: #0066cc;
 }
-.filters label {
+.instructor-filters label {
   font-weight: bold;
   color: #333;
 }
-.product-list {
+.instructor-product-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
-  width: 80%;
   padding: 20px;
 }
-.product-card hr {
+.instructor-product-card hr {
   height: 1px;
   background-color: #bebebe;
   width: 50%;
 }
-.product-card {
-  height: 400px;
+.instructor-product-card {
+  height: 250px;
   background-color: whitesmoke;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.product-card:hover {
+.instructor-product-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
-.product-card img {
+.instructor-product-card img {
   width: 100%;
   height: 160px;
   border-radius: 5px;
   margin-bottom: 10px;
 }
-.product-card h3 {
+.instructor-product-card h3 {
   font-size: 1.2rem;
   margin: 10px 0;
   color: #333;
 }
-.product-card p {
+.instructor-product-card p {
   font-size: 1rem;
   margin: 5px 0;
   color: #666;
 }
-.product-card .price {
+.instructor-product-card .price {
   font-size: 1.2rem;
   font-weight: bold;
   color: #333;
   margin-top: 10px;
 }
-.product-card .stock-status {
+.instructor-product-card .stock-status {
   font-size: 1rem;
   color: #999;
   margin-top: 5px;
 }
-.product-card-buttons {
+.instructor-product-card-buttons {
   display: flex;
   justify-content: end;
   align-items: center;
   gap: 5px;
 }
-.product-card-buttons .add {
+.instructor-product-card-buttons .add {
   background-color: #c4c4c4;
   color: black;
   padding: 5px 10px;
@@ -128,12 +129,14 @@
   font-size: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.product-card-buttons .add:hover {
+.instructor-product-card-buttons .add:hover {
   background-color: #3a8a4b;
   color: whitesmoke;
   transform: translateY(-5px);
 }
-.filters button {
+.instructor-filters button {
+  width: 50%;
+  margin: auto;
   background-color: #ec6363;
   color: #fff;
   padding: 10px 15px;
@@ -142,9 +145,8 @@
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.3s ease;
-  width: 100%;
 }
-.filters button:hover {
+.instructor-filters button:hover {
   background-color: #ba4747;
 }
 @media (max-width: 768px) {
@@ -152,25 +154,25 @@
     flex-direction: column;
     padding: 0 20px 50px 20px;
   }
-  .filters {
+  .instructor-filters {
     margin-right: 0;
     width: 100%;
   }
-  .product-list {
+  .instructor-product-list {
     width: 100%;
   }
 }
 @media (max-width: 480px) {
-  .product-card {
+  .instructor-product-card {
     padding: 15px;
   }
-  .product-card h3 {
+  .instructor-product-card h3 {
     font-size: 1.2rem;
   }
-  .product-card p {
+  .instructor-product-card p {
     font-size: 0.9rem;
   }
-  .product-card .price {
+  .instructor-product-card .price {
     font-size: 1.1rem;
   }
 }

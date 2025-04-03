@@ -8,7 +8,7 @@ import "./Classes.css";
 const Classes = () => {
   const [sortBy, setSortBy] = useState("time");
   const [filters, setFilters] = useState({
-    instructor: [],
+    instructor: "all",
     timeRange: "all",
   });
 
@@ -16,12 +16,11 @@ const Classes = () => {
 
   const filteredClasses = classes.filter((classItem) => {
     //filter by instructor
-    if (
-      filters.instructor.length > 0 &&
-      !filters.instructor.includes(classItem.instructor)
-    ) {
+    if (filters.instructor != "all" && filters.instructor.length > 0) {
+      if (!filters.instructor.includes(classItem.instructor)) {
       return false;
     }
+  }
 
     //filter by time
     if (filters.timeRange !== "all") {
@@ -46,7 +45,7 @@ const Classes = () => {
 
   const clearFilters = () => {
     setFilters({
-      instructor: [],
+      instructor: "all",
       timeRange: "all",
     });
     setSortBy("time");
@@ -57,7 +56,7 @@ const Classes = () => {
       const message = await bookClass(classItem._id);
       toast.success(message);
     } catch (error) {
-      toast.error("Error booking class. Please try again.");
+      toast.error("You can not book this class.");
     }
   };
 
@@ -66,7 +65,7 @@ const Classes = () => {
       <HeaderContainer imageSrc="/classes_header_img.webp" title="CLASSES" />
       <hr />
       <div className="class-content">
-        <div className="filters">
+        <div className="instructor-filters">
           <label>FILTER & SORT</label>
           <hr />
           <label>SORT BY:</label>
@@ -87,9 +86,10 @@ const Classes = () => {
                 setFilters({ ...filters, instructor: selectedInstructors });
               }}
             >
-              <option value="Instructor A">Instructor A</option>
-              <option value="Instructor B">Instructor B</option>
-              <option value="Instructor C">Instructor C</option>
+              <option value="all">All</option>
+              <option value="Peter Brown">Peter Brown</option>
+              <option value="Sophie Wild">Sophie Wild</option>
+              <option value="Stacey Trevor">Stacey Trevor</option>
             </select>
           </div>
           <hr />
@@ -110,14 +110,14 @@ const Classes = () => {
           <hr />
           <button onClick={clearFilters}>Clear Filters</button>
         </div>
-        <div className="product-list">
+        <div className="instructor-product-list">
           {sortedClasses.map((classItem) => (
-            <div key={classItem._id} className="product-card">
+            <div key={classItem._id} className="instructor-product-card">
               <h3>{classItem.name}</h3>
               <p>Time: {classItem.time}</p>
               <p>Instructor: {classItem.instructor}</p>
               <p>Bookings: {classItem.bookings}</p>
-              <div className="product-card-buttons">
+              <div className="instructor-product-card-buttons">
                 <button
                   className="add"
                   onClick={() => handleBookClass(classItem)}
