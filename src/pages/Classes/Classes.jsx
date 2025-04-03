@@ -15,7 +15,7 @@ const Classes = () => {
   const { classes, bookClass } = useContext(ClassBookingContext);
 
   const filteredClasses = classes.filter((classItem) => {
-    // filter by instructor
+    //filter by instructor
     if (
       filters.instructor.length > 0 &&
       !filters.instructor.includes(classItem.instructor)
@@ -23,7 +23,7 @@ const Classes = () => {
       return false;
     }
 
-    // filter by time
+    //filter by time
     if (filters.timeRange !== "all") {
       const [startTime, endTime] = filters.timeRange.split("-").map(Number);
       const classTime = parseInt(classItem.time.replace(":", ""), 10);

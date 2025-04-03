@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./SignIn.css";
-//require("dotenv").config();
 
 const SignIn = () => {
   const [email, setEmail] = useState("");

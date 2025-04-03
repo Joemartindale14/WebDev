@@ -7,7 +7,7 @@ const User = require("../models/User");
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
-// middleware to authenticate token
+//middleware to authenticate token
 const authenticateToken = (req, res, next) => {
   const token = req.headers["authorization"]?.split(" ")[1];
   if (!token) return res.status(401).json({ message: "Access denied" });
@@ -19,13 +19,13 @@ const authenticateToken = (req, res, next) => {
   });
 };
 
-// middleware to check if user is admin
+//middleware to check if user is admin
 const isAdmin = (req, res, next) => {
   if (!req.user.isAdmin) return res.status(403).json({ message: "Access denied" });
   next();
 };
 
-// sign up route
+//sign up route
 router.post('/signup', async (req, res) => {
   const { firstName, lastName, email, password, address, postcode, isAdmin } = req.body;
   try {
@@ -37,7 +37,7 @@ router.post('/signup', async (req, res) => {
   }
 });
 
-// sign in route
+//sign in route
 router.post('/signin', async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -54,7 +54,7 @@ router.post('/signin', async (req, res) => {
   }
 });
 
-// create admin route
+//create admin route
 router.post('/create-admin', async (req, res) => {
   const { firstName, lastName, email, password, address, postcode } = req.body;
   try {
@@ -66,7 +66,7 @@ router.post('/create-admin', async (req, res) => {
   }
 });
 
-// account route
+//account route
 router.get('/account', authenticateToken, async (req, res) => {
   try {
     const user = await User.findById(req.user.userId);
@@ -77,7 +77,7 @@ router.get('/account', authenticateToken, async (req, res) => {
   }
 });
 
-// update user details
+//update user details
 router.put('/account', authenticateToken, async (req, res) => {
   try {
     const user = await User.findByIdAndUpdate(req.user.userId, req.body, { new: true });
@@ -88,7 +88,7 @@ router.put('/account', authenticateToken, async (req, res) => {
   }
 });
 
-// admin routes for updating merchandise and classes
+//admin routes for updating merchandise and classes
 router.put('/merchandise', authenticateToken, isAdmin, async (req, res) => {
   res.send('Merchandise updated');
 });

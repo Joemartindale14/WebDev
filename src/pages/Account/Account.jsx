@@ -23,7 +23,7 @@ const Account = () => {
         });
         setUser(response.data);
 
-        // Fetch booked classes
+        //get booked classes
         const classesResponse = await axios.get("http://localhost:5000/api/classes");
         const booked = classesResponse.data.filter((classItem) =>
           response.data.bookedClasses.includes(classItem._id)

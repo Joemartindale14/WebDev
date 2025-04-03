@@ -39,17 +39,17 @@ const Merchandise = () => {
     ];
 
     const filteredProducts = products.filter(product => {
-        // filter by category
+        //filter by category
         if (filters.category.length > 0 && !filters.category.includes(product.category)) {
             return false;
         }
 
-        // filter by stock
+        //filter by stock
         if (filters.inStock && product.stock === 0) {
             return false;
         }
 
-        // filter by price range
+        //filter by price range
         if (filters.priceRange !== "all") {
             const [minPrice, maxPrice] = filters.priceRange.split('-').map(Number);
             if (product.price < minPrice || product.price > maxPrice) {

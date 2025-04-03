@@ -60,7 +60,6 @@
   font-weight: bold;
   color: #333;
 }
-/* Product List */
 .product-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -68,7 +67,6 @@
   width: 80%;
   padding: 20px;
 }
-/* Product Card */
 .product-card hr {
   height: 1px;
   background-color: #bebebe;
@@ -89,6 +87,7 @@
 .product-card img {
   width: 100%;
   height: 160px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   border-radius: 5px;
   margin-bottom: 10px;
 }
@@ -149,7 +148,6 @@
 .filters button:hover {
   background-color: #ba4747;
 }
-/* Responsive Design */
 @media (max-width: 768px) {
   .merch-content {
     flex-direction: column;
