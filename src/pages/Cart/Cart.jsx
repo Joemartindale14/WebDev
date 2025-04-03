@@ -34,6 +34,8 @@ const Cart = () => {
                         </div>
                     ))}
                     <hr />
+                    <h2>Pay on collection.<br /><h6>All our products are available to complete the order online, however it is a pay at collection service only.</h6></h2>
+                    <hr />
                     <div className="total-price">
                         <h1>Total Cart Price: <b>£{totalPrice.toFixed(2)}</b></h1>
                         <h3>Total Item Quantity: {totalQuantity}</h3>
