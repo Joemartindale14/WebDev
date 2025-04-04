@@ -7,6 +7,7 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  
   return (
     <section className="contact">
       <form>

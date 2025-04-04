@@ -44,3 +44,11 @@ footer {
   color: #014099;
   text-decoration: underline;
 }
+@media (max-width: 768px) {
+  .footer-content-right ul{
+    flex-direction: column;
+  }
+  .footer-content-right a{
+    font-size: 20px;
+  }
+}

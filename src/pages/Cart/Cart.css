@@ -14,8 +14,8 @@
 }
 .cart h2{
   color: #004ab0;
+  margin-top: 20px;
   padding: 10px;
-  margin-top: 30px;
   font-size: 2.5rem;
   background-color: rgba(245, 245, 245, 0.508);
   border-radius: 4px;
@@ -26,7 +26,6 @@
 .cart h6{
   font-size: 1.2rem;
   text-align: center;
-  margin: 15px 0px 25px 0px;
   padding: 10px;
 }
 .cart-items {

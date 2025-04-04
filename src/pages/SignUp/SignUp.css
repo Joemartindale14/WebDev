@@ -87,3 +87,16 @@
 .sign-in-link a:hover {
   text-decoration: underline;
 }
+@media (max-width: 600px) {
+  .sign-up-form {
+    margin: 25px;
+    padding: 20px;
+  }
+  .sign-up-form h1 {
+    font-size: 1.8rem;
+  }
+  .sign-up-button {
+    width: 100%;
+    font-size: 18px;
+  }
+}
