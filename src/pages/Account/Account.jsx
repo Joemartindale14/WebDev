@@ -66,16 +66,13 @@ const Account = () => {
   const handleCancelBooking = async (classItem) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.post(
-        "http://localhost:5000/api/cancel",
-        { classId: classItem._id },
+      const response = await axios.post("http://localhost:5000/api/cancel",{ classId: classItem._id },
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         }
       );
-      toast.success(response.data.message);
 
       setBookedClasses((prevClasses) =>
         prevClasses.filter((item) => item._id !== classItem._id)
@@ -86,9 +83,16 @@ const Account = () => {
     }
   };
 
-  if (!user) {
-    return <div>Loading...</div>;
-  }
+  const handleEditClick = () => {
+    setEditUser({
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      address: user.address,
+      postcode: user.postcode,
+    });
+    setIsEditing(true);
+  };
 
   return (
     <div className="account-container">
@@ -182,7 +186,7 @@ const Account = () => {
                   <p><strong>Email:</strong> {user.email}</p>
                   <p><strong>Address:</strong> {user.address}</p>
                   <p><strong>Postcode:</strong> {user.postcode}</p>
-                  <button className="edit-button" onClick={() => setIsEditing(true)}>Edit</button>
+                  <button className="edit-button" onClick={handleEditClick}>Edit</button>
                 </div>
               )}
             </div>
@@ -196,12 +200,7 @@ const Account = () => {
                     <h3>{classItem.name}</h3>
                     <p>Time: {classItem.time}</p>
                     <p>Instructor: {classItem.instructor}</p>
-                    <button
-                      className="cancel"
-                      onClick={() => handleCancelBooking(classItem)}
-                    >
-                      Cancel Booking
-                    </button>
+                    <button className="cancel-class-button" onClick={() => handleCancelBooking(classItem)}>Cancel Booking</button>
                   </div>
                 ))
               ) : (

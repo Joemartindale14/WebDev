@@ -153,3 +153,36 @@
 .cancel-button:hover {
   background: #ff1a1a;
 }
+.cancel-class-button {
+  width: 15%;
+  border: none;
+  color: whitesmoke;
+  background: #ff4d4d;
+  padding: 10px;
+  font-size: 20px;
+  transition: 0.3s;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 10px 0px 40px 20px;
+}
+.cancel-class-button:hover {
+  background: #ff1a1a;
+}
+@media (max-width: 768px) {
+  .account-page-content {
+    flex-direction: column;
+    padding: 0 20px 70px 20px;
+  }
+  .account-sidebar {
+    margin-right: 0;
+    width: 100%;
+  }
+  .account-content {
+    width: 100%;
+  }
+  .edit-button, .save-button, .cancel-button {
+    width: 100%;
+    font-size: 18px;
+    padding: 15px;
+  }
+}
