@@ -84,6 +84,11 @@ const Account = () => {
   };
 
   const handleEditClick = () => {
+    if (!user) {
+      console.error("User data is not available.");
+      return;
+    }
+  
     setEditUser({
       firstName: user.firstName,
       lastName: user.lastName,
@@ -101,7 +106,11 @@ const Account = () => {
       <div className="account-page-content">
         <div className="account-sidebar">
           <p>Welcome back,</p>
-          <h3>{user.firstName} {user.lastName}</h3>
+          {user ? (
+            <h3>{user.firstName} {user.lastName}</h3>
+          ) : (
+            <h3>Loading...</h3>
+          )}
           <hr />
           <ul>
             <li
@@ -134,63 +143,65 @@ const Account = () => {
           </ul>
         </div>
         <div className="account-content">
-          {activeSection === "details" && (
-            <div className="account-details">
-              <h2>Account Details</h2>
-              {isEditing ? (
-                <form onSubmit={handleSave} className="edit-details">
-                  <label htmlFor="firstName">First Name</label>
-                  <input
-                    type="text"
-                    name="firstName"
-                    value={editUser.firstName}
-                    onChange={handleEditChange}
-                  />
-                  <label htmlFor="lastName">Last Name</label>
-                  <input
-                    type="text"
-                    name="lastName"
-                    value={editUser.lastName}
-                    onChange={handleEditChange}
-                  />
-                  <label htmlFor="email">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={editUser.email}
-                    onChange={handleEditChange}
-                  />
-                  <label htmlFor="address">Address</label>
-                  <input
-                    type="text"
-                    name="address"
-                    value={editUser.address}
-                    onChange={handleEditChange}
-                  />
-                  <label htmlFor="postcode">Postcode</label>
-                  <input
-                    type="text"
-                    name="postcode"
-                    value={editUser.postcode}
-                    onChange={handleEditChange}
-                  />
-                  <div className="changes-buttons">
-                    <button type="submit" className="save-button">Save</button>
-                    <button type="button" className="cancel-button" onClick={() => setIsEditing(false)}>Cancel</button>
-                  </div>
-                </form>
-              ) : (
-                <div>
-                  <p><strong>First Name:</strong> {user.firstName}</p>
-                  <p><strong>Last Name:</strong> {user.lastName}</p>
-                  <p><strong>Email:</strong> {user.email}</p>
-                  <p><strong>Address:</strong> {user.address}</p>
-                  <p><strong>Postcode:</strong> {user.postcode}</p>
-                  <button className="edit-button" onClick={handleEditClick}>Edit</button>
+        {activeSection === "details" && (
+  <div className="account-details">
+    <h2>Account Details</h2>
+            {isEditing ? (
+              <form onSubmit={handleSave} className="edit-details">
+                <label htmlFor="firstName">First Name</label>
+                <input
+                  type="text"
+                  name="firstName"
+                  value={editUser.firstName || ""}
+                  onChange={handleEditChange}
+                />
+                <label htmlFor="lastName">Last Name</label>
+                <input
+                  type="text"
+                  name="lastName"
+                  value={editUser.lastName || ""}
+                  onChange={handleEditChange}
+                />
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={editUser.email || ""}
+                  onChange={handleEditChange}
+                />
+                <label htmlFor="address">Address</label>
+                <input
+                  type="text"
+                  name="address"
+                  value={editUser.address || ""}
+                  onChange={handleEditChange}
+                />
+                <label htmlFor="postcode">Postcode</label>
+                <input
+                  type="text"
+                  name="postcode"
+                  value={editUser.postcode || ""}
+                  onChange={handleEditChange}
+                />
+                <div className="changes-buttons">
+                  <button type="submit" className="save-button">Save</button>
+                  <button type="button" className="cancel-button" onClick={() => setIsEditing(false)}>Cancel</button>
                 </div>
-              )}
-            </div>
-          )}
+              </form>
+            ) : user ? (
+              <div>
+                <p><strong>First Name:</strong> {user.firstName}</p>
+                <p><strong>Last Name:</strong> {user.lastName}</p>
+                <p><strong>Email:</strong> {user.email}</p>
+                <p><strong>Address:</strong> {user.address}</p>
+                <p><strong>Postcode:</strong> {user.postcode}</p>
+                <button className="edit-button" onClick={handleEditClick}>Edit</button>
+              </div>
+            ) : (
+              <p>Loading your account details.</p>
+            )}
+          </div>
+        )}
           {activeSection === "classes" && (
             <div className="account-classes">
               <h2>My Bookings</h2>

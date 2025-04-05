@@ -1,12 +1,44 @@
 import React, { useContext } from 'react';
 import HeaderContainer from "../../components/HeaderContainer/HeaderContainer";
 import { CartContext } from '../../context/CartContext';
+import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 import './Cart.css';
 
 const Cart = () => {
     const { cart, removeFromCart, decreaseQuantity, increaseQuantity } = useContext(CartContext);
+    const navigate = useNavigate();
 
     const totalPrice = cart.reduce((total, product) => total + product.price * product.quantity, 0);
+
+const handleConfirmOrder = async () => {
+  const token = localStorage.getItem("token");
+
+  try {
+    const response = await axios.post(
+      "http://localhost:5000/api/orders",
+      {
+        items: cart.map((product) => ({
+          productId: product.id,
+          quantity: product.quantity,
+          price: product.price,
+        })),
+        totalPrice,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    setCart([]);
+    navigate("/OrderConfirmation");
+  } catch (error) {
+    console.error("Error confirming order:", error);
+    alert("Failed to confirm order. Please try again.");
+  }
+};
     
     return (
         <section className='cart'>
@@ -35,7 +67,7 @@ const Cart = () => {
                     <hr />
                     <div className="total-price">
                         <h1>Total Cart Price: <b>£{totalPrice.toFixed(2)}</b></h1>
-                        <button>Confirm Order</button>
+                        <button onClick={handleConfirmOrder}>Confirm Order</button>
                         <div className='collection-text'>
                             <h2>Pay on collection.
                             <h6>All our products are available to complete the order online, however it is a pay at collection service only as we do not take payments online at this moment in time.</h6></h2>

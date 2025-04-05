@@ -21,6 +21,7 @@ import DropdownMenu from "./components/DropdownMenu/DropdownMenu";
 import { CartProvider } from "./context/CartContext";
 import { ClassBookingProvider } from "./context/ClassBookingContext";
 import Cart from "./pages/Cart/Cart"; 
+import OrderConfirmation from "./pages/OrderConfirmation/OrderConfirmation";
 
 const App = () => {
   const current_theme = localStorage.getItem("current_theme");
@@ -55,6 +56,7 @@ const App = () => {
                   <Route path="/Account" element={<ProtectedRoute element={<Account />} />} />
                   <Route path="/Admin" element={<ProtectedRoute element={<Admin />} />} />
                   <Route path="/Cart" element={<Cart />} />
+                  <Route path="/OrderConfirmation" element={<OrderConfirmation />} />
                 </Routes>
                 <Footer />
                 <ToastContainer theme="dark" position="top-center" />
