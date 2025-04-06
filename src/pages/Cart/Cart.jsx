@@ -45,7 +45,10 @@ const handleConfirmOrder = async () => {
             <HeaderContainer imageSrc="/merchandise_header_img.webp" title="CART"/>
             <hr />
             {cart.length === 0 ? (
-                <h2>You have an empty cart.<br /><h6>Browse our Merchandise to add products to your cart!</h6></h2>
+              <div>
+                <h2>You have an empty cart.</h2>
+                <h6>Browse our Merchandise to add products to your cart!</h6>
+              </div>
             ) : (
                 <div className='cart-items'>
                     {cart.map((product) => (

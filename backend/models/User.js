@@ -8,7 +8,6 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true },
     address: { type: String, required: true },
     postcode: { type: String, required: true },
-    isAdmin: { type: Boolean, default: false },
     bookedClasses: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Class' }]
 });
 

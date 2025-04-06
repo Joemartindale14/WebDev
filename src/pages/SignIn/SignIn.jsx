@@ -15,8 +15,7 @@ const SignIn = () => {
       });
       alert("User signed in successfully.");
       localStorage.setItem("token", response.data.token);
-      const isAdmin = response.data.isAdmin;
-      window.location.href = isAdmin ? "/admin" : "/account";
+      window.location.href = "/account";
     } catch (error) {
       alert("Invalid email or password.");
     }

@@ -19,17 +19,11 @@ const authenticateToken = (req, res, next) => {
   });
 };
 
-//middleware to check if user is admin
-const isAdmin = (req, res, next) => {
-  if (!req.user.isAdmin) return res.status(403).json({ message: "Access denied" });
-  next();
-};
-
 //sign up route
 router.post('/signup', async (req, res) => {
-  const { firstName, lastName, email, password, address, postcode, isAdmin } = req.body;
+  const { firstName, lastName, email, password, address, postcode } = req.body;
   try {
-    const user = new User({ firstName, lastName, email, password, address, postcode, isAdmin });
+    const user = new User({ firstName, lastName, email, password, address, postcode });
     await user.save();
     res.status(201).send('User created');
   } catch (err) {
@@ -47,22 +41,10 @@ router.post('/signin', async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ message: "Invalid email or password" });
 
-    const token = jwt.sign({ userId: user._id, isAdmin: user.isAdmin }, JWT_SECRET, { expiresIn: '1h' });
-    res.json({ token, isAdmin: user.isAdmin });
+    const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '1h' });
+    res.json({ token });
   } catch (err) {
     res.status(500).send(err.message);
-  }
-});
-
-//create admin route
-router.post('/create-admin', async (req, res) => {
-  const { firstName, lastName, email, password, address, postcode } = req.body;
-  try {
-    const user = new User({ firstName, lastName, email, password, address, postcode, isAdmin: true });
-    await user.save();
-    res.status(201).send('Admin user created');
-  } catch (err) {
-    res.status(400).send(err.message);
   }
 });
 
@@ -86,15 +68,6 @@ router.put('/account', authenticateToken, async (req, res) => {
   } catch (err) {
     res.status(500).send(err.message);
   }
-});
-
-//admin routes for updating merchandise and classes
-router.put('/merchandise', authenticateToken, isAdmin, async (req, res) => {
-  res.send('Merchandise updated');
-});
-
-router.put('/classes', authenticateToken, isAdmin, async (req, res) => {
-  res.send('Classes updated');
 });
 
 module.exports = router;

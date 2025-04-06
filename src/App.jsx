@@ -14,7 +14,6 @@ import Footer from "./components/Footer/Footer";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
 import Account from "./pages/Account/Account";
-import Admin from "./pages/Admin/Admin";
 import ProtectedRoute from "./components/ProtectedRoute";
 import BurgerIcon from "./components/BurgerIcon/BurgerIcon";
 import DropdownMenu from "./components/DropdownMenu/DropdownMenu";
@@ -54,7 +53,6 @@ const App = () => {
                   <Route path="/SignIn" element={<SignIn />} />
                   <Route path="/SignUp" element={<SignUp />} />
                   <Route path="/Account" element={<ProtectedRoute element={<Account />} />} />
-                  <Route path="/Admin" element={<ProtectedRoute element={<Admin />} />} />
                   <Route path="/Cart" element={<Cart />} />
                   <Route path="/OrderConfirmation" element={<OrderConfirmation />} />
                 </Routes>
