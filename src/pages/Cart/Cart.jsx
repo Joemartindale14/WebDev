@@ -12,40 +12,15 @@ const Cart = () => {
     const totalPrice = cart.reduce((total, product) => total + product.price * product.quantity, 0);
 
 const handleConfirmOrder = async () => {
-  const token = localStorage.getItem("token");
+    navigate('/OrderConfirmation');
+}
 
-  try {
-    const response = await axios.post(
-      "http://localhost:5000/api/orders",
-      {
-        items: cart.map((product) => ({
-          productId: product.id,
-          quantity: product.quantity,
-          price: product.price,
-        })),
-        totalPrice,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-
-    setCart([]);
-    navigate("/OrderConfirmation");
-  } catch (error) {
-    console.error("Error confirming order:", error);
-    alert("Failed to confirm order. Please try again.");
-  }
-};
-    
     return (
         <section className='cart'>
             <HeaderContainer imageSrc="/merchandise_header_img.webp" title="CART"/>
             <hr />
             {cart.length === 0 ? (
-              <div>
+              <div className='empty-cart'>
                 <h2>You have an empty cart.</h2>
                 <h6>Browse our Merchandise to add products to your cart!</h6>
               </div>
@@ -73,7 +48,7 @@ const handleConfirmOrder = async () => {
                         <button onClick={handleConfirmOrder}>Confirm Order</button>
                         <div className='collection-text'>
                             <h2>Pay on collection.
-                            <h6>All our products are available to complete the order online, however it is a pay at collection service only as we do not take payments online at this moment in time.</h6></h2>
+                            <h5>All our products are available to complete the order online, however it is a pay at collection service only as we do not take payments online at this moment in time.</h5></h2>
                         </div>
                     </div>
                 </div>

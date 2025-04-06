@@ -7,10 +7,29 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  
+  const [confirmation, setConfirmation] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setConfirmation("");
+
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      setConfirmation("Thank you for sending a message, we will get back to you as soon as we can!");
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch (error) {
+      setConfirmation("The message was not sent, please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="contact">
-      <form>
+      <form onSubmit={handleSubmit}>
         <h1>CONTACT US</h1>
         <div>
           <label>Name</label>
@@ -52,6 +71,7 @@ const Contact = () => {
           {loading && <ClipLoader size={20} color="white" />}
           Send Message
         </button>
+        {confirmation && <p className="confirmation-message">{confirmation}</p>}
       </form>
     </section>
   );

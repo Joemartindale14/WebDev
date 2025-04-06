@@ -6,7 +6,6 @@ require("dotenv").config();
 
 const authRoutes = require('./routes/authRoutes');
 const classRoutes = require('./routes/classRoutes');
-const orderRoutes = require('./routes/orderRoutes');
 
 
 //express app
@@ -39,10 +38,8 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 app.use('/api/auth', authRoutes);
 
 //use class routes
-app.use('/api/classes', classRoutes);
+app.use('/api', classRoutes);
 
-//use order routes
-app.use('/api/orders', orderRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

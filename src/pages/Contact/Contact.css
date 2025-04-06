@@ -58,6 +58,12 @@
 .contact form button:hover {
   background: #0267af; 
 }
+.confirmation-message {
+  margin-top: 15px;
+  color: green;
+  font-weight: bold;
+  text-align: center;
+}
 @media (max-width: 1160px) {
   .contact {
     justify-content: center;

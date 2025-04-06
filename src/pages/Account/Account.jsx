@@ -128,13 +128,6 @@ const Account = () => {
             </li>
             <hr />
             <li
-              className={activeSection === "merchandise" ? "active" : ""}
-              onClick={() => setActiveSection("merchandise")}
-            >
-              My Orders
-            </li>
-            <hr />
-            <li
               className="sign-out"
               onClick={handleSignOut}
             >
@@ -217,12 +210,6 @@ const Account = () => {
               ) : (
                 <p>No classes booked yet.</p>
               )}
-            </div>
-          )}
-          {activeSection === "merchandise" && (
-            <div className="account-merchandise">
-              <h2>My Orders</h2>
-              {/* Add logic to display purchased merchandise */}
             </div>
           )}
         </div>

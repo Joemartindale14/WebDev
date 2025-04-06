@@ -1,28 +1,48 @@
 .order-confirmation {
-    text-align: center;
-    padding: 50px;
-  }
-  
-  .order-confirmation h1 {
-    font-size: 2.5rem;
-    color: #004ab0;
-  }
-  
-  .order-confirmation p {
-    font-size: 1.2rem;
-    margin: 20px 0;
-  }
-  
-  .order-confirmation button {
-    background-color: #3a8a4b;
-    color: whitesmoke;
-    font-size: 1.2rem;
-    padding: 10px 20px;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .order-confirmation button:hover {
-    background-color: #58c774;
-  }
+  text-align: center;
+  padding: 50px;
+  min-height: 80vh;
+}
+.order-confirmation-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 50px;
+}
+.order-confirmation-header h1{
+  color: #004ab0;
+  margin-top: 20px;
+  padding: 30px;
+  font-size: 3rem;
+  background-color: rgba(245, 245, 245, 0.508);
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+.order-confirmation-header p{
+  color: #004ab0;
+  margin-top: 20px;
+  padding: 30px;
+  font-size:2.0rem;
+  background-color: rgba(245, 245, 245, 0.508);
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+.order-confirmation button {
+  background-color: #3a8a4b;
+  color: whitesmoke;
+  margin-top: 30px;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+}
+.order-confirmation button:hover {
+  background-color: #58c774;
+}
